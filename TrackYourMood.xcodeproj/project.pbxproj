@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2FBC0D50EA0D4F6A3B48A56D /* Pods_TrackYourMood_TrackYourMoodUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6596CC4D2B007FB5D39EEB6 /* Pods_TrackYourMood_TrackYourMoodUITests.framework */; };
+		8B4544B6AB7E5CDC7D2354CA /* Pods_TrackYourMood.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07EE90D54D128658404ADDDD /* Pods_TrackYourMood.framework */; };
 		B840DDBD24BCEDDB001CBF87 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B840DDBC24BCEDDB001CBF87 /* AppDelegate.m */; };
 		B840DDC024BCEDDB001CBF87 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B840DDBF24BCEDDB001CBF87 /* SceneDelegate.m */; };
 		B840DDC324BCEDDB001CBF87 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B840DDC224BCEDDB001CBF87 /* ViewController.m */; };
@@ -16,6 +18,8 @@
 		B840DDCE24BCEDDB001CBF87 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B840DDCD24BCEDDB001CBF87 /* main.m */; };
 		B840DDD824BCEDDB001CBF87 /* TrackYourMoodTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B840DDD724BCEDDB001CBF87 /* TrackYourMoodTests.m */; };
 		B840DDE324BCEDDB001CBF87 /* TrackYourMoodUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B840DDE224BCEDDB001CBF87 /* TrackYourMoodUITests.m */; };
+		B840DDF124BCEE73001CBF87 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B840DDF024BCEE73001CBF87 /* GoogleService-Info.plist */; };
+		CAA95E7BE48A07AC2D7C79F9 /* Pods_TrackYourMoodTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E9484C76147678A2C90FE36 /* Pods_TrackYourMoodTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07EE90D54D128658404ADDDD /* Pods_TrackYourMood.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrackYourMood.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E9484C76147678A2C90FE36 /* Pods_TrackYourMoodTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrackYourMoodTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C2F8536E3CFC6C061CF05C9 /* Pods-TrackYourMood.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackYourMood.release.xcconfig"; path = "Target Support Files/Pods-TrackYourMood/Pods-TrackYourMood.release.xcconfig"; sourceTree = "<group>"; };
+		62254677627B7822DE3C2D19 /* Pods-TrackYourMood-TrackYourMoodUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackYourMood-TrackYourMoodUITests.debug.xcconfig"; path = "Target Support Files/Pods-TrackYourMood-TrackYourMoodUITests/Pods-TrackYourMood-TrackYourMoodUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		63E09966E36A0E2BF4474DDD /* Pods-TrackYourMood-TrackYourMoodUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackYourMood-TrackYourMoodUITests.release.xcconfig"; path = "Target Support Files/Pods-TrackYourMood-TrackYourMoodUITests/Pods-TrackYourMood-TrackYourMoodUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7213C315EF77A367D471D01D /* Pods-TrackYourMood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackYourMood.debug.xcconfig"; path = "Target Support Files/Pods-TrackYourMood/Pods-TrackYourMood.debug.xcconfig"; sourceTree = "<group>"; };
+		8F469F03C4D99F2584329148 /* Pods-TrackYourMoodTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackYourMoodTests.release.xcconfig"; path = "Target Support Files/Pods-TrackYourMoodTests/Pods-TrackYourMoodTests.release.xcconfig"; sourceTree = "<group>"; };
+		926CF339E7FF8E5BF9DA6A4C /* Pods-TrackYourMoodTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackYourMoodTests.debug.xcconfig"; path = "Target Support Files/Pods-TrackYourMoodTests/Pods-TrackYourMoodTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B840DDB824BCEDDB001CBF87 /* TrackYourMood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackYourMood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B840DDBB24BCEDDB001CBF87 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B840DDBC24BCEDDB001CBF87 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -54,6 +66,8 @@
 		B840DDDE24BCEDDB001CBF87 /* TrackYourMoodUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrackYourMoodUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B840DDE224BCEDDB001CBF87 /* TrackYourMoodUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrackYourMoodUITests.m; sourceTree = "<group>"; };
 		B840DDE424BCEDDB001CBF87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B840DDF024BCEE73001CBF87 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F6596CC4D2B007FB5D39EEB6 /* Pods_TrackYourMood_TrackYourMoodUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrackYourMood_TrackYourMoodUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B4544B6AB7E5CDC7D2354CA /* Pods_TrackYourMood.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAA95E7BE48A07AC2D7C79F9 /* Pods_TrackYourMoodTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,12 +91,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FBC0D50EA0D4F6A3B48A56D /* Pods_TrackYourMood_TrackYourMoodUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E69476259C65A12EA50A586 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7213C315EF77A367D471D01D /* Pods-TrackYourMood.debug.xcconfig */,
+				2C2F8536E3CFC6C061CF05C9 /* Pods-TrackYourMood.release.xcconfig */,
+				62254677627B7822DE3C2D19 /* Pods-TrackYourMood-TrackYourMoodUITests.debug.xcconfig */,
+				63E09966E36A0E2BF4474DDD /* Pods-TrackYourMood-TrackYourMoodUITests.release.xcconfig */,
+				926CF339E7FF8E5BF9DA6A4C /* Pods-TrackYourMoodTests.debug.xcconfig */,
+				8F469F03C4D99F2584329148 /* Pods-TrackYourMoodTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		B840DDAF24BCEDDB001CBF87 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +118,8 @@
 				B840DDD624BCEDDB001CBF87 /* TrackYourMoodTests */,
 				B840DDE124BCEDDB001CBF87 /* TrackYourMoodUITests */,
 				B840DDB924BCEDDB001CBF87 /* Products */,
+				4E69476259C65A12EA50A586 /* Pods */,
+				E2B4CFD817826941D45A00CF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,6 +146,7 @@
 				B840DDC724BCEDDB001CBF87 /* Assets.xcassets */,
 				B840DDC924BCEDDB001CBF87 /* LaunchScreen.storyboard */,
 				B840DDCC24BCEDDB001CBF87 /* Info.plist */,
+				B840DDF024BCEE73001CBF87 /* GoogleService-Info.plist */,
 				B840DDCD24BCEDDB001CBF87 /* main.m */,
 			);
 			path = TrackYourMood;
@@ -137,6 +170,16 @@
 			path = TrackYourMoodUITests;
 			sourceTree = "<group>";
 		};
+		E2B4CFD817826941D45A00CF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				07EE90D54D128658404ADDDD /* Pods_TrackYourMood.framework */,
+				F6596CC4D2B007FB5D39EEB6 /* Pods_TrackYourMood_TrackYourMoodUITests.framework */,
+				0E9484C76147678A2C90FE36 /* Pods_TrackYourMoodTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,9 +187,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B840DDE724BCEDDB001CBF87 /* Build configuration list for PBXNativeTarget "TrackYourMood" */;
 			buildPhases = (
+				0371B64E80961E34F4CC450C /* [CP] Check Pods Manifest.lock */,
 				B840DDB424BCEDDB001CBF87 /* Sources */,
 				B840DDB524BCEDDB001CBF87 /* Frameworks */,
 				B840DDB624BCEDDB001CBF87 /* Resources */,
+				6286B7EE241AC4402C89097D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -161,6 +206,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B840DDEA24BCEDDB001CBF87 /* Build configuration list for PBXNativeTarget "TrackYourMoodTests" */;
 			buildPhases = (
+				C8A237333954AD756F161FC7 /* [CP] Check Pods Manifest.lock */,
 				B840DDCF24BCEDDB001CBF87 /* Sources */,
 				B840DDD024BCEDDB001CBF87 /* Frameworks */,
 				B840DDD124BCEDDB001CBF87 /* Resources */,
@@ -179,9 +225,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B840DDED24BCEDDB001CBF87 /* Build configuration list for PBXNativeTarget "TrackYourMoodUITests" */;
 			buildPhases = (
+				8ADD254D31172B57FA26FFF7 /* [CP] Check Pods Manifest.lock */,
 				B840DDDA24BCEDDB001CBF87 /* Sources */,
 				B840DDDB24BCEDDB001CBF87 /* Frameworks */,
 				B840DDDC24BCEDDB001CBF87 /* Resources */,
+				A5C0865ED922F6A3130F1322 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -241,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B840DDCB24BCEDDB001CBF87 /* LaunchScreen.storyboard in Resources */,
+				B840DDF124BCEE73001CBF87 /* GoogleService-Info.plist in Resources */,
 				B840DDC824BCEDDB001CBF87 /* Assets.xcassets in Resources */,
 				B840DDC624BCEDDB001CBF87 /* Main.storyboard in Resources */,
 			);
@@ -261,6 +310,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0371B64E80961E34F4CC450C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TrackYourMood-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6286B7EE241AC4402C89097D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TrackYourMood/Pods-TrackYourMood-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TrackYourMood/Pods-TrackYourMood-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TrackYourMood/Pods-TrackYourMood-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8ADD254D31172B57FA26FFF7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TrackYourMood-TrackYourMoodUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A5C0865ED922F6A3130F1322 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TrackYourMood-TrackYourMoodUITests/Pods-TrackYourMood-TrackYourMoodUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TrackYourMood-TrackYourMoodUITests/Pods-TrackYourMood-TrackYourMoodUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TrackYourMood-TrackYourMoodUITests/Pods-TrackYourMood-TrackYourMoodUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C8A237333954AD756F161FC7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TrackYourMoodTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B840DDB424BCEDDB001CBF87 /* Sources */ = {
@@ -437,6 +589,7 @@
 		};
 		B840DDE824BCEDDB001CBF87 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7213C315EF77A367D471D01D /* Pods-TrackYourMood.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -454,6 +607,7 @@
 		};
 		B840DDE924BCEDDB001CBF87 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C2F8536E3CFC6C061CF05C9 /* Pods-TrackYourMood.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -471,6 +625,7 @@
 		};
 		B840DDEB24BCEDDB001CBF87 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 926CF339E7FF8E5BF9DA6A4C /* Pods-TrackYourMoodTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -491,6 +646,7 @@
 		};
 		B840DDEC24BCEDDB001CBF87 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F469F03C4D99F2584329148 /* Pods-TrackYourMoodTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -511,6 +667,7 @@
 		};
 		B840DDEE24BCEDDB001CBF87 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 62254677627B7822DE3C2D19 /* Pods-TrackYourMood-TrackYourMoodUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32V87G3FTM;
@@ -529,6 +686,7 @@
 		};
 		B840DDEF24BCEDDB001CBF87 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63E09966E36A0E2BF4474DDD /* Pods-TrackYourMood-TrackYourMoodUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32V87G3FTM;
