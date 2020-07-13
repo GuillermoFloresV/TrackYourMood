@@ -6,8 +6,9 @@ target 'TrackYourMood' do
   use_frameworks!
 
   # Pods for TrackYourMood
-  pod 'Firebase/Analytics'
+  pod 'Firebase/Core'
   pod 'Firebase/Auth'
+  pod 'GoogleSignIn'
   target 'TrackYourMoodTests' do
     inherit! :search_paths
     # Pods for testing

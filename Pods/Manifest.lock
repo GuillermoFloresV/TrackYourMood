@@ -1,6 +1,9 @@
 PODS:
-  - Firebase/Analytics (6.27.1):
-    - Firebase/Core
+  - AppAuth (1.4.0):
+    - AppAuth/Core (= 1.4.0)
+    - AppAuth/ExternalUserAgent (= 1.4.0)
+  - AppAuth/Core (1.4.0)
+  - AppAuth/ExternalUserAgent (1.4.0)
   - Firebase/Auth (6.27.1):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 6.6.0)
@@ -47,6 +50,10 @@ PODS:
   - GoogleDataTransportCCTSupport (3.2.0):
     - GoogleDataTransport (~> 6.1)
     - nanopb (~> 1.30905.0)
+  - GoogleSignIn (5.0.2):
+    - AppAuth (~> 1.2)
+    - GTMAppAuth (~> 1.0)
+    - GTMSessionFetcher/Core (~> 1.1)
   - GoogleUtilities/AppDelegateSwizzler (6.6.0):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
@@ -66,7 +73,14 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (6.6.0):
     - GoogleUtilities/Logger
+  - GTMAppAuth (1.0.0):
+    - AppAuth/Core (~> 1.0)
+    - GTMSessionFetcher (~> 1.1)
+  - GTMSessionFetcher (1.4.0):
+    - GTMSessionFetcher/Full (= 1.4.0)
   - GTMSessionFetcher/Core (1.4.0)
+  - GTMSessionFetcher/Full (1.4.0):
+    - GTMSessionFetcher/Core (= 1.4.0)
   - nanopb (1.30905.0):
     - nanopb/decode (= 1.30905.0)
     - nanopb/encode (= 1.30905.0)
@@ -75,11 +89,13 @@ PODS:
   - PromisesObjC (1.2.9)
 
 DEPENDENCIES:
-  - Firebase/Analytics
   - Firebase/Auth
+  - Firebase/Core
+  - GoogleSignIn
 
 SPEC REPOS:
   trunk:
+    - AppAuth
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -89,12 +105,15 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleDataTransportCCTSupport
+    - GoogleSignIn
     - GoogleUtilities
+    - GTMAppAuth
     - GTMSessionFetcher
     - nanopb
     - PromisesObjC
 
 SPEC CHECKSUMS:
+  AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
   Firebase: 919186c8e119dd9372a45fd1dd17a8a942bc1892
   FirebaseAnalytics: 5fa308e1b13f838d0f6dc74719ac2a72e8c5afc4
   FirebaseAuth: b85c064e0ac60f82486728d50a4803f235687302
@@ -104,11 +123,13 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 8cd1f289d60e629cf16ab03363b9e89c776b9651
   GoogleDataTransport: 9a8a16f79feffc7f42096743de2a7c4815e84020
   GoogleDataTransportCCTSupport: 489c1265d2c85b68187a83a911913d190012158d
+  GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
   GoogleUtilities: 39530bc0ad980530298e9c4af8549e991fd033b1
+  GTMAppAuth: 4deac854479704f348309e7b66189e604cf5e01e
   GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
 
-PODFILE CHECKSUM: 478348928f15a8c2a4bb27d6da41a8d3d4a60922
+PODFILE CHECKSUM: 8dc5cd7b3912ae501a3628f7b3ad3fa9d495076d
 
 COCOAPODS: 1.9.3
