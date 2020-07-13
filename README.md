@@ -85,9 +85,14 @@ Mood tracking app that reminds users daily (either at a default time or at a tim
 ### [BONUS] Interactive Prototype
 
 ## Schema 
-[This section will be completed in Unit 9]
 ### Models
-[Add table of models]
+**User**
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| email | NSString | Email that the user used in order to sign up |
+| name | NSString | Display name for the user (visible in profile and feed) |
+| age | NSNumber | User age for profile display purposes |
+
 ### Networking
 - [Add list of network requests by screen ]
 - [Create basic snippets for each Parse network request]
