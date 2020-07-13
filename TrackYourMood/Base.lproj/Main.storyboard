@@ -26,9 +26,6 @@
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wF9-Sm-RdO">
                                 <rect key="frame" x="107" y="319" width="200" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="4of-kA-i4i"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="password"/>
                             </textField>
@@ -73,11 +70,28 @@
                     </view>
                     <connections>
                         <outlet property="signInButton" destination="s6x-tY-R5G" id="Gpe-2A-8hl"/>
+                        <segue destination="JC5-EP-RmO" kind="presentation" identifier="goHome" modalPresentationStyle="fullScreen" id="U7D-Ec-vFV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="115.84821428571428"/>
+            <point key="canvasLocation" x="149" y="116"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="RmK-xR-I9C">
+            <objects>
+                <viewController id="JC5-EP-RmO" customClass="homeViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LUp-Vc-DhH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Qwt-rZ-GVl"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ALf-0A-aH5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KsB-Pe-QEb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1103" y="116"/>
         </scene>
     </scenes>
 </document>
