@@ -23,17 +23,82 @@
 
 }
 - (IBAction)signUpWithEmailAndPassword:(id)sender {
+    //grabs the text from the text fields
     NSString *email= self.emailTextField.text;
     NSString *password = self.passwordTextField.text;
     [[FIRAuth auth] createUserWithEmail:email password:password completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
         if(error!=nil){
-            SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            homeViewController *homeViewController = [storyboard instantiateViewControllerWithIdentifier:@"homeViewController"];
-            sceneDelegate.window.rootViewController = homeViewController;
+            //signs the user in with the newly created account
+            if(email.length==0 || password.length==0){
+                // Do any additional setup after loading the view.
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"
+                                                                               message:[NSString stringWithFormat:@"Email/Password cannot be left empty"]
+                preferredStyle:(UIAlertControllerStyleAlert)];
+                // create an OK action
+                UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+                                                                   style:UIAlertActionStyleDefault
+                                                                 handler:^(UIAlertAction * _Nonnull action) {
+                                                                         // handle response here.
+                                                                 }];
+                // add the OK action to the alert controller
+                [alert addAction:okAction];
+                [self presentViewController:alert animated:YES completion:^{
+                    // optional code for what happens after the alert controller has finished presenting
+                    self.emailTextField.text = @"";
+                    self.passwordTextField.text = @"";
+                }];
+            }
+            else{
+                [[FIRAuth auth] signInWithEmail:email
+                                       password:password
+                                     completion:^(FIRAuthDataResult * _Nullable authResult,
+                                                  NSError * _Nullable error) {
+                  if(error != nil){
+                      SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
+                      UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                      homeViewController *homeViewController = [storyboard instantiateViewControllerWithIdentifier:@"homeViewController"];
+                      sceneDelegate.window.rootViewController = homeViewController;
+                  }
+                  else{
+                      // Do any additional setup after loading the view.
+                      UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"
+                                                                                     message:[NSString stringWithFormat:@"Unable to sign in, please try again"]
+                      preferredStyle:(UIAlertControllerStyleAlert)];
+                      // create an OK action
+                      UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+                                                                         style:UIAlertActionStyleDefault
+                                                                       handler:^(UIAlertAction * _Nonnull action) {
+                                                                               // handle response here.
+                                                                       }];
+                      // add the OK action to the alert controller
+                      [alert addAction:okAction];
+                      [self presentViewController:alert animated:YES completion:^{
+                          // optional code for what happens after the alert controller has finished presenting
+                          self.emailTextField.text = @"";
+                          self.passwordTextField.text = @"";
+                      }];
+                  }
+                }];
+            }
         }
         else{
-            
+            // Do any additional setup after loading the view.
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"
+                                                                           message:[NSString stringWithFormat:@"Unable to sign up, please try again"]
+            preferredStyle:(UIAlertControllerStyleAlert)];
+            // create an OK action
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+                                                               style:UIAlertActionStyleDefault
+                                                             handler:^(UIAlertAction * _Nonnull action) {
+                                                                     // handle response here.
+                                                             }];
+            // add the OK action to the alert controller
+            [alert addAction:okAction];
+            [self presentViewController:alert animated:YES completion:^{
+                // optional code for what happens after the alert controller has finished presenting
+                self.emailTextField.text = @"";
+                self.passwordTextField.text = @"";
+            }];
         }
     }];
 }

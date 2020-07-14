@@ -22,6 +22,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U1w-A6-Z12">
                                 <rect key="frame" x="188" y="369" width="38" height="30"/>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q1j-8e-D7K"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9wD-0f-e7y">
                                 <rect key="frame" x="107" y="269" width="200" height="34"/>
@@ -72,6 +75,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="emailField" destination="9wD-0f-e7y" id="Oxh-q0-6q0"/>
+                        <outlet property="passwordField" destination="wF9-Sm-RdO" id="71X-z5-jZU"/>
                         <outlet property="signInButton" destination="s6x-tY-R5G" id="Gpe-2A-8hl"/>
                         <segue destination="JC5-EP-RmO" kind="presentation" identifier="goHome" modalPresentationStyle="fullScreen" id="U7D-Ec-vFV"/>
                     </connections>
