@@ -34,7 +34,6 @@
         
         [[FIRAuth auth] signInWithCredential:credential completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
             if(user){
-                NSString *welcomeMessage= [NSString stringWithFormat:@"Welcome to TrackYourMood: %@", user.userID];
                 // Do any additional setup after loading the view.
                 UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Firebase"
                                                                                message:[NSString stringWithFormat:@"Welcome to TrackYourMood, %@", user.profile.name]
