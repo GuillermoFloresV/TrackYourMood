@@ -10,7 +10,7 @@
         <!--LoginViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="LoginViewController" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" title="LoginViewController" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,7 +44,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <state key="normal" title="Sign Up"/>
                                 <connections>
-                                    <segue destination="0Sq-Wg-8Tl" kind="presentation" modalPresentationStyle="fullScreen" id="Up4-ef-Lab"/>
+                                    <segue destination="Xva-l4-zyC" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="r4D-41-1Ik"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -83,25 +83,77 @@
         <!--Sign Up-->
         <scene sceneID="VQ9-BN-Sff">
             <objects>
-                <viewController id="Xva-l4-zyC" customClass="signUpViewController" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="Xva-l4-zyC" customClass="signUpViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3R3-Uy-c5R">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bGi-4F-lg2">
+                                <rect key="frame" x="120" y="216" width="175" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OGZ-e4-EIG">
+                                <rect key="frame" x="120" y="293" width="175" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TGm-oc-iNJ">
+                                <rect key="frame" x="180" y="335" width="54" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <action selector="signUpWithEmailAndPassword:" destination="Xva-l4-zyC" eventType="touchUpInside" id="iDY-zC-scK"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Already Have An Account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efT-tt-9qc">
+                                <rect key="frame" x="120" y="381" width="128" height="12"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gu8-Js-odz">
+                                <rect key="frame" x="262" y="375" width="33" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <state key="normal" title="Sign In"/>
+                                <connections>
+                                    <action selector="onTapSignIn:" destination="Xva-l4-zyC" eventType="touchUpInside" id="Ct0-lv-Q39"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="7Si-nc-tHK"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="h4e-CA-zNv" appends="YES" id="ufK-Yq-3be"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Sign Up" id="xYK-YV-pSO">
                         <barButtonItem key="backBarButtonItem" title=" " id="hGQ-wy-fYu"/>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="bGi-4F-lg2" id="5GW-Kk-tk5"/>
+                        <outlet property="passwordTextField" destination="OGZ-e4-EIG" id="NCa-cY-mW4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l4j-O0-wYA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="h4e-CA-zNv">
+                    <connections>
+                        <action selector="onTapScreen:" destination="Xva-l4-zyC" id="oUo-9l-32O"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1391.304347826087" y="941.51785714285711"/>
+            <point key="canvasLocation" x="147.82608695652175" y="903.34821428571422"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="RmK-xR-I9C">
             <objects>
-                <viewController id="JC5-EP-RmO" customClass="homeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homeViewController" id="JC5-EP-RmO" customClass="homeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LUp-Vc-DhH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -113,25 +165,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KsB-Pe-QEb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1103" y="116"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="s02-gz-flA">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0Sq-Wg-8Tl" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="4MV-W0-3IT"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="49S-iC-L4c">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Xva-l4-zyC" kind="relationship" relationship="rootViewController" id="Wjx-Nc-ba5"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Vfl-zR-n0g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="481.15942028985512" y="941.51785714285711"/>
         </scene>
     </scenes>
 </document>

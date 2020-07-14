@@ -7,7 +7,10 @@
 //
 
 #import "signUpViewController.h"
-
+#import "SceneDelegate.h"
+#import "ViewController.h"
+#import "homeViewController.h"
+@import Firebase;
 @interface signUpViewController ()
 
 @end
@@ -17,6 +20,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+}
+- (IBAction)signUpWithEmailAndPassword:(id)sender {
+    NSString *email= self.emailTextField.text;
+    NSString *password = self.passwordTextField.text;
+    [[FIRAuth auth] createUserWithEmail:email password:password completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
+        if(error!=nil){
+            SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            homeViewController *homeViewController = [storyboard instantiateViewControllerWithIdentifier:@"homeViewController"];
+            sceneDelegate.window.rootViewController = homeViewController;
+        }
+        else{
+            
+        }
+    }];
+}
+- (IBAction)onTapScreen:(id)sender {
+    [self.view endEditing:YES];
+}
+- (IBAction)onTapSignIn:(id)sender {
+    SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    sceneDelegate.window.rootViewController = loginViewController;
+    
 }
 
 /*

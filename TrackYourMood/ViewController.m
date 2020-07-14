@@ -20,7 +20,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [FIRApp configure];
       [GIDSignIn sharedInstance].presentingViewController = self;
     
     [GIDSignIn sharedInstance].clientID = [FIRApp defaultApp].options.clientID;
