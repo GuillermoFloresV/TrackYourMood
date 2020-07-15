@@ -12,7 +12,7 @@
 #import "homeViewController.h"
 @import Firebase;
 @interface signUpViewController ()
-
+@property (strong, nonatomic) FIRDatabaseReference *ref;
 @end
 
 @implementation signUpViewController
@@ -20,6 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.ref = [[FIRDatabase database] reference];
 
 }
 - (IBAction)signUpWithEmailAndPassword:(id)sender {
@@ -30,6 +31,8 @@
         if(error!=nil){
             //signs the user in with the newly created account
             if(email.length==0 || password.length==0){
+                [[[self.ref child:@"users"] child:authResult.user.uid]
+                setValue:@{@"email": email}];
                 // Do any additional setup after loading the view.
                 UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"
                                                                                message:[NSString stringWithFormat:@"Email/Password cannot be left empty"]

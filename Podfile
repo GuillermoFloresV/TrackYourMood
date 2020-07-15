@@ -9,7 +9,7 @@ target 'TrackYourMood' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
-  pod 'Firebase/Database'
+  pod 'Firebase/Firestore'
   target 'TrackYourMoodTests' do
     inherit! :search_paths
     # Pods for testing
