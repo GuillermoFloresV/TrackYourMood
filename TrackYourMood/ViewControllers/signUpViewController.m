@@ -12,7 +12,6 @@
 #import "homeViewController.h"
 @import Firebase;
 @interface signUpViewController ()
-@property (strong, nonatomic) FIRDatabaseReference *ref;
 @end
 
 @implementation signUpViewController
@@ -20,7 +19,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.ref = [[FIRDatabase database] reference];
 
 }
 - (IBAction)signUpWithEmailAndPassword:(id)sender {
@@ -31,8 +29,6 @@
         if(error!=nil){
             //signs the user in with the newly created account
             if(email.length==0 || password.length==0){
-                [[[self.ref child:@"users"] child:authResult.user.uid]
-                setValue:@{@"email": email}];
                 // Do any additional setup after loading the view.
                 UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"
                                                                                message:[NSString stringWithFormat:@"Email/Password cannot be left empty"]
@@ -57,10 +53,28 @@
                                      completion:^(FIRAuthDataResult * _Nullable authResult,
                                                   NSError * _Nullable error) {
                   if(error != nil){
+                      //takes us to the home page
                       SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
                       UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                       homeViewController *homeViewController = [storyboard instantiateViewControllerWithIdentifier:@"homeViewController"];
                       sceneDelegate.window.rootViewController = homeViewController;
+                      //adds user to the database (firestore database) this allows us to read their profile data in the future
+                      
+                      FIRFirestore *db = [FIRFirestore firestore];
+                      // Do any additional setup after loading the view.
+                      // Add a new document in collection "cities"
+                        [[[db collectionWithPath:@"users"] documentWithPath:email] setData:@{
+                        @"name": @"",
+                        @"age": @"",
+                        @"username": email,
+                      } completion:^(NSError * _Nullable error) {
+                        if (error != nil) {
+                          NSLog(@"Error writing document: %@", error);
+                        } else {
+                          NSLog(@"Document successfully written!");
+                        }
+                      }];
+
                   }
                   else{
                       // Do any additional setup after loading the view.

@@ -107,6 +107,10 @@
                 [alert addAction:okAction];
                 [self presentViewController:alert animated:YES completion:^{
                     // optional code for what happens after the alert controller has finished presenting
+                    SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
+                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                    homeViewController *homeViewController = [storyboard instantiateViewControllerWithIdentifier:@"homeViewController"];
+                    sceneDelegate.window.rootViewController = homeViewController;
                 }];
             }
         }];

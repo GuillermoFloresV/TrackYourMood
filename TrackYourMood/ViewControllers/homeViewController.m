@@ -7,7 +7,9 @@
 //
 
 #import "homeViewController.h"
-
+#import "AppDelegate.h"
+@import Firebase;
+@import FirebaseFirestore;
 @interface homeViewController ()
 
 @end
@@ -16,7 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+      
 }
 
 /*
