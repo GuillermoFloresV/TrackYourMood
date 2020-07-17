@@ -11,6 +11,7 @@
 @interface composeViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *moodEmojis;
 @property (weak, nonatomic) IBOutlet UITextView *moodDescription;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *isPublicControl;
 
 @end
 
@@ -35,6 +36,11 @@
 }
 - (IBAction)onTapScreen:(id)sender {
     [self.view endEditing:YES];
+}
+- (IBAction)isPublicControl:(id)sender {
+    NSArray *boolean = @[@(YES),@(NO) ];
+    BOOL isPublic = [boolean[self.isPublicControl.selectedSegmentIndex] boolValue];
+    NSLog(@"%d",isPublic);
 }
 
 

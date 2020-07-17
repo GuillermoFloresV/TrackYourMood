@@ -245,6 +245,9 @@
                                     <segment title="Private"/>
                                 </segments>
                                 <color key="selectedSegmentTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="isPublicControl:" destination="q0y-qD-fUU" eventType="valueChanged" id="bU6-ha-d4V"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -272,6 +275,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Compose" id="lYU-MG-EC9"/>
                     <connections>
+                        <outlet property="isPublicControl" destination="BFS-iI-Ut6" id="drf-Rx-Jqd"/>
                         <outlet property="moodDescription" destination="e2W-Dn-qyV" id="fQv-4Y-7iZ"/>
                         <outlet property="moodEmojis" destination="sjT-lT-ZOr" id="bcP-yx-M2p"/>
                     </connections>
