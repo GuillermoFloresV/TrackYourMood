@@ -28,6 +28,9 @@
     [GIDSignIn sharedInstance].delegate = self;
     
 }
+- (IBAction)onTapScreen:(id)sender {
+    [self.view endEditing:YES];
+}
 - (IBAction)loginAction:(id)sender {
     NSString *email = self.emailField.text;
     NSString *password = self.passwordField.text;

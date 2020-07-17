@@ -24,7 +24,6 @@
     self.moodDescription.delegate = self;
     
     
-    
 }
 - (BOOL) textViewShouldBeginEditing:(UITextView *)moodDescription{
     //super hacky way to have the placeholder text disappear (want to fix later)
@@ -33,6 +32,9 @@
         self.moodDescription.textColor = [UIColor blackColor];
     }
     return YES;
+}
+- (IBAction)onTapScreen:(id)sender {
+    [self.view endEditing:YES];
 }
 
 
