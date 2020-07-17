@@ -56,10 +56,7 @@
                              completion:^(FIRAuthDataResult * _Nullable authResult,
                                           NSError * _Nullable error) {
           if(error != nil){
-              SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
-              UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-              homeViewController *homeViewController = [storyboard instantiateViewControllerWithIdentifier:@"homeViewController"];
-              sceneDelegate.window.rootViewController = homeViewController;
+              [self performSegueWithIdentifier:@"goHomeNav" sender:nil];
           }
           else{
               // Do any additional setup after loading the view.
@@ -117,5 +114,7 @@
         
     }
 }
+//
+
 
 @end

@@ -21,6 +21,7 @@
 		B840DDF124BCEE73001CBF87 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B840DDF024BCEE73001CBF87 /* GoogleService-Info.plist */; };
 		B840DDF424BD1834001CBF87 /* homeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B840DDF324BD1834001CBF87 /* homeViewController.m */; };
 		B840DDF724BD7ACC001CBF87 /* signUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B840DDF624BD7ACC001CBF87 /* signUpViewController.m */; };
+		B840DDFA24C0F7DF001CBF87 /* composeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B840DDF924C0F7DF001CBF87 /* composeViewController.m */; };
 		CAA95E7BE48A07AC2D7C79F9 /* Pods_TrackYourMoodTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E9484C76147678A2C90FE36 /* Pods_TrackYourMoodTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,8 @@
 		B840DDF324BD1834001CBF87 /* homeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = homeViewController.m; path = ViewControllers/homeViewController.m; sourceTree = "<group>"; };
 		B840DDF524BD7ACC001CBF87 /* signUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = signUpViewController.h; path = ViewControllers/signUpViewController.h; sourceTree = "<group>"; };
 		B840DDF624BD7ACC001CBF87 /* signUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = signUpViewController.m; path = ViewControllers/signUpViewController.m; sourceTree = "<group>"; };
+		B840DDF824C0F7DF001CBF87 /* composeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = composeViewController.h; path = ViewControllers/composeViewController.h; sourceTree = "<group>"; };
+		B840DDF924C0F7DF001CBF87 /* composeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = composeViewController.m; path = ViewControllers/composeViewController.m; sourceTree = "<group>"; };
 		F6596CC4D2B007FB5D39EEB6 /* Pods_TrackYourMood_TrackYourMoodUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrackYourMood_TrackYourMoodUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -149,6 +152,8 @@
 				B840DDC124BCEDDB001CBF87 /* ViewController.h */,
 				B840DDC224BCEDDB001CBF87 /* ViewController.m */,
 				B840DDC424BCEDDB001CBF87 /* Main.storyboard */,
+				B840DDF824C0F7DF001CBF87 /* composeViewController.h */,
+				B840DDF924C0F7DF001CBF87 /* composeViewController.m */,
 				B840DDF224BD1834001CBF87 /* homeViewController.h */,
 				B840DDF324BD1834001CBF87 /* homeViewController.m */,
 				B840DDF524BD7ACC001CBF87 /* signUpViewController.h */,
@@ -467,6 +472,7 @@
 			files = (
 				B840DDF724BD7ACC001CBF87 /* signUpViewController.m in Sources */,
 				B840DDC324BCEDDB001CBF87 /* ViewController.m in Sources */,
+				B840DDFA24C0F7DF001CBF87 /* composeViewController.m in Sources */,
 				B840DDBD24BCEDDB001CBF87 /* AppDelegate.m in Sources */,
 				B840DDCE24BCEDDB001CBF87 /* main.m in Sources */,
 				B840DDF424BD1834001CBF87 /* homeViewController.m in Sources */,

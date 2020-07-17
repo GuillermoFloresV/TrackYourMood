@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -78,7 +78,7 @@
                         <outlet property="emailField" destination="9wD-0f-e7y" id="Oxh-q0-6q0"/>
                         <outlet property="passwordField" destination="wF9-Sm-RdO" id="71X-z5-jZU"/>
                         <outlet property="signInButton" destination="s6x-tY-R5G" id="Gpe-2A-8hl"/>
-                        <segue destination="7eS-Kr-Lyv" kind="presentation" identifier="goHome" modalPresentationStyle="fullScreen" id="U7D-Ec-vFV"/>
+                        <segue destination="7eS-Kr-Lyv" kind="presentation" identifier="goHomeNav" destinationCreationSelector="goHomeNav" modalPresentationStyle="fullScreen" id="U7D-Ec-vFV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -155,7 +155,7 @@
             </objects>
             <point key="canvasLocation" x="147.82608695652175" y="903.34821428571422"/>
         </scene>
-        <!--Home View Controller-->
+        <!--Feed-->
         <scene sceneID="RmK-xR-I9C">
             <objects>
                 <viewController storyboardIdentifier="homeViewController" id="JC5-EP-RmO" customClass="homeViewController" sceneMemberID="viewController">
@@ -165,7 +165,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Qwt-rZ-GVl"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ALf-0A-aH5">
+                    <navigationItem key="navigationItem" title="Feed" id="ALf-0A-aH5">
                         <barButtonItem key="rightBarButtonItem" title="Compose" image="pencil" catalog="system" id="FNY-AY-vNh">
                             <connections>
                                 <segue destination="q0y-qD-fUU" kind="show" id="ldm-dD-0Wd"/>
@@ -180,64 +180,85 @@
         <!--Compose-->
         <scene sceneID="TlB-Xp-OPF">
             <objects>
-                <viewController id="q0y-qD-fUU" sceneMemberID="viewController">
+                <viewController id="q0y-qD-fUU" customClass="composeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fgz-6e-Kxp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="e2W-Dn-qyV">
-                                <rect key="frame" x="20" y="183" width="374" height="151"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="e2W-Dn-qyV">
+                                <rect key="frame" x="20" y="140.5" width="374" height="193.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zs-ht-WYS">
-                                <rect key="frame" x="52" y="412" width="35" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="😃"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sGm-cS-2Bg">
-                                <rect key="frame" x="112" y="408" width="30" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="🙂"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sjT-lT-ZOr">
-                                <rect key="frame" x="192" y="408" width="30" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="😐"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JyU-qQ-6X6">
-                                <rect key="frame" x="336" y="408" width="30" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="😞"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iaU-be-ZBu">
-                                <rect key="frame" x="267" y="408" width="30" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="😕"/>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How was your day?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dy2-N6-xbd">
+                                <rect key="frame" x="134" y="104" width="147.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="W9W-FP-xD3">
+                                <rect key="frame" x="54" y="406" width="306" height="42"/>
+                                <subviews>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zs-ht-WYS">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="😃"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sGm-cS-2Bg">
+                                        <rect key="frame" x="69" y="0.0" width="30" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="🙂"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sjT-lT-ZOr">
+                                        <rect key="frame" x="138" y="0.0" width="30" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="😐"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iaU-be-ZBu">
+                                        <rect key="frame" x="207" y="0.0" width="30" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="😕"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JyU-qQ-6X6">
+                                        <rect key="frame" x="276" y="0.0" width="30" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="😞"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="e2W-Dn-qyV" firstAttribute="top" secondItem="dy2-N6-xbd" secondAttribute="bottom" constant="16" id="CwT-0R-Dh8"/>
+                            <constraint firstItem="dy2-N6-xbd" firstAttribute="leading" secondItem="erS-ja-L8v" secondAttribute="leading" constant="134" id="EQ9-fP-yhT"/>
+                            <constraint firstItem="e2W-Dn-qyV" firstAttribute="leading" secondItem="erS-ja-L8v" secondAttribute="leading" constant="20" id="INr-2V-hmt"/>
+                            <constraint firstItem="W9W-FP-xD3" firstAttribute="leading" secondItem="erS-ja-L8v" secondAttribute="leading" constant="54" id="K8G-YY-gr7"/>
+                            <constraint firstItem="W9W-FP-xD3" firstAttribute="top" secondItem="e2W-Dn-qyV" secondAttribute="bottom" constant="72" id="T8I-3N-W3v"/>
+                            <constraint firstItem="erS-ja-L8v" firstAttribute="trailing" secondItem="e2W-Dn-qyV" secondAttribute="trailing" constant="20" id="lcx-EX-6Hq"/>
+                            <constraint firstItem="erS-ja-L8v" firstAttribute="trailing" secondItem="W9W-FP-xD3" secondAttribute="trailing" constant="54" id="nIz-45-ioX"/>
+                            <constraint firstItem="erS-ja-L8v" firstAttribute="bottom" secondItem="W9W-FP-xD3" secondAttribute="bottom" constant="414" id="onK-fN-Huh"/>
+                            <constraint firstItem="erS-ja-L8v" firstAttribute="trailing" secondItem="dy2-N6-xbd" secondAttribute="trailing" constant="132.5" id="svE-CW-CY0"/>
+                            <constraint firstItem="dy2-N6-xbd" firstAttribute="top" secondItem="erS-ja-L8v" secondAttribute="top" constant="16" id="vVi-Sq-JVH"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="erS-ja-L8v"/>
                     </view>
                     <navigationItem key="navigationItem" title="Compose" id="lYU-MG-EC9"/>
+                    <connections>
+                        <outlet property="moodDescription" destination="e2W-Dn-qyV" id="fQv-4Y-7iZ"/>
+                        <outlet property="moodEmojis" destination="sjT-lT-ZOr" id="bcP-yx-M2p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qEG-dX-eQZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2011.594202898551" y="902.67857142857133"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Go To Home Nav Bar-->
         <scene sceneID="Z3S-No-nxS">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7eS-Kr-Lyv" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7eS-Kr-Lyv" customClass="goToHomeNavBar" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IaF-d1-sJR">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -245,7 +266,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="JC5-EP-RmO" kind="relationship" relationship="rootViewController" id="4ks-fl-onY"/>
+                        <segue destination="JC5-EP-RmO" kind="relationship" relationship="rootViewController" destinationCreationSelector="goHome" id="4ks-fl-onY"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jyb-mE-gtl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
