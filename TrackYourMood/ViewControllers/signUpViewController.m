@@ -74,7 +74,6 @@
                           NSLog(@"Document successfully written!");
                         }
                       }];
-
                   }
                   else{
                       // Do any additional setup after loading the view.

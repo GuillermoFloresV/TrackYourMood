@@ -177,7 +177,7 @@
                     <navigationItem key="navigationItem" title="Feed" id="ALf-0A-aH5">
                         <barButtonItem key="rightBarButtonItem" title="Compose" image="pencil" catalog="system" id="FNY-AY-vNh">
                             <connections>
-                                <segue destination="q0y-qD-fUU" kind="show" id="ldm-dD-0Wd"/>
+                                <segue destination="q0y-qD-fUU" kind="presentation" id="ldm-dD-0Wd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -191,11 +191,11 @@
             <objects>
                 <viewController id="q0y-qD-fUU" customClass="composeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fgz-6e-Kxp">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="e2W-Dn-qyV">
-                                <rect key="frame" x="20" y="140.5" width="374" height="193.5"/>
+                                <rect key="frame" x="20" y="54" width="374" height="226"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -203,13 +203,13 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How was your day?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dy2-N6-xbd">
-                                <rect key="frame" x="134" y="104" width="147.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="131" y="16" width="150.5" height="22"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="W9W-FP-xD3">
-                                <rect key="frame" x="54" y="406" width="306" height="42"/>
+                                <rect key="frame" x="54" y="352" width="306" height="42"/>
                                 <subviews>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zs-ht-WYS">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="42"/>
@@ -239,7 +239,7 @@
                                 </subviews>
                             </stackView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="BFS-iI-Ut6">
-                                <rect key="frame" x="145" y="553" width="125" height="32"/>
+                                <rect key="frame" x="145" y="499" width="125" height="32"/>
                                 <segments>
                                     <segment title="Public"/>
                                     <segment title="Private"/>
@@ -249,31 +249,48 @@
                                     <action selector="isPublicControl:" destination="q0y-qD-fUU" eventType="valueChanged" id="bU6-ha-d4V"/>
                                 </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIH-ZX-8mU">
+                                <rect key="frame" x="363" y="16" width="35" height="30"/>
+                                <state key="normal" title="Post"/>
+                                <connections>
+                                    <action selector="postAction:" destination="q0y-qD-fUU" eventType="touchUpInside" id="rV2-7d-ADO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="dy2-N6-xbd" firstAttribute="leading" secondItem="erS-ja-L8v" secondAttribute="leading" constant="131" id="3Hk-Eu-3pZ"/>
                             <constraint firstItem="erS-ja-L8v" firstAttribute="trailing" secondItem="BFS-iI-Ut6" secondAttribute="trailing" constant="144" id="4Xn-28-5D4"/>
                             <constraint firstItem="BFS-iI-Ut6" firstAttribute="top" secondItem="W9W-FP-xD3" secondAttribute="bottom" constant="105" id="7tm-OQ-Lsj"/>
                             <constraint firstItem="e2W-Dn-qyV" firstAttribute="top" secondItem="dy2-N6-xbd" secondAttribute="bottom" constant="16" id="CwT-0R-Dh8"/>
-                            <constraint firstItem="dy2-N6-xbd" firstAttribute="leading" secondItem="erS-ja-L8v" secondAttribute="leading" constant="134" id="EQ9-fP-yhT"/>
                             <constraint firstItem="e2W-Dn-qyV" firstAttribute="leading" secondItem="erS-ja-L8v" secondAttribute="leading" constant="20" id="INr-2V-hmt"/>
+                            <constraint firstItem="nIH-ZX-8mU" firstAttribute="leading" secondItem="dy2-N6-xbd" secondAttribute="trailing" constant="81.5" id="K3B-yi-gAH"/>
                             <constraint firstItem="W9W-FP-xD3" firstAttribute="leading" secondItem="erS-ja-L8v" secondAttribute="leading" constant="54" id="K8G-YY-gr7"/>
                             <constraint firstItem="W9W-FP-xD3" firstAttribute="top" secondItem="e2W-Dn-qyV" secondAttribute="bottom" constant="72" id="T8I-3N-W3v"/>
+                            <constraint firstItem="e2W-Dn-qyV" firstAttribute="top" secondItem="nIH-ZX-8mU" secondAttribute="bottom" constant="8" id="f7k-r6-m9q"/>
                             <constraint firstItem="erS-ja-L8v" firstAttribute="bottom" secondItem="BFS-iI-Ut6" secondAttribute="bottom" constant="278" id="jI3-Gs-u0R"/>
                             <constraint firstItem="erS-ja-L8v" firstAttribute="trailing" secondItem="e2W-Dn-qyV" secondAttribute="trailing" constant="20" id="lcx-EX-6Hq"/>
                             <constraint firstItem="erS-ja-L8v" firstAttribute="trailing" secondItem="W9W-FP-xD3" secondAttribute="trailing" constant="54" id="nIz-45-ioX"/>
                             <constraint firstItem="erS-ja-L8v" firstAttribute="bottom" secondItem="W9W-FP-xD3" secondAttribute="bottom" constant="414" id="onK-fN-Huh"/>
-                            <constraint firstItem="erS-ja-L8v" firstAttribute="trailing" secondItem="dy2-N6-xbd" secondAttribute="trailing" constant="132.5" id="svE-CW-CY0"/>
+                            <constraint firstItem="nIH-ZX-8mU" firstAttribute="top" secondItem="erS-ja-L8v" secondAttribute="top" constant="16" id="qiE-SY-6IA"/>
+                            <constraint firstItem="erS-ja-L8v" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="dy2-N6-xbd" secondAttribute="trailing" constant="132.5" id="svE-CW-CY0"/>
                             <constraint firstItem="BFS-iI-Ut6" firstAttribute="leading" secondItem="erS-ja-L8v" secondAttribute="leading" constant="145" id="uhn-9U-TH8"/>
                             <constraint firstItem="dy2-N6-xbd" firstAttribute="top" secondItem="erS-ja-L8v" secondAttribute="top" constant="16" id="vVi-Sq-JVH"/>
+                            <constraint firstItem="erS-ja-L8v" firstAttribute="trailing" secondItem="nIH-ZX-8mU" secondAttribute="trailing" constant="16" id="ywY-TK-YmA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="erS-ja-L8v"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="W4h-9B-nXT" appends="YES" id="qR8-G8-rRK"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Compose" id="lYU-MG-EC9"/>
+                    <navigationItem key="navigationItem" title="Compose" id="lYU-MG-EC9">
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="r1b-u6-HOZ">
+                            <connections>
+                                <action selector="postAction:" destination="q0y-qD-fUU" id="bwU-xa-8B3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="isPublicControl" destination="BFS-iI-Ut6" id="drf-Rx-Jqd"/>
                         <outlet property="moodDescription" destination="e2W-Dn-qyV" id="fQv-4Y-7iZ"/>
@@ -287,13 +304,14 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2011.594202898551" y="902.67857142857133"/>
+            <point key="canvasLocation" x="2013" y="926"/>
         </scene>
         <!--Go To Home Nav Bar-->
         <scene sceneID="Z3S-No-nxS">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7eS-Kr-Lyv" customClass="goToHomeNavBar" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="f79-bE-1gZ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IaF-d1-sJR">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
