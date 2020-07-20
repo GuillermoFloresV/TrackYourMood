@@ -53,7 +53,10 @@
 - (IBAction)postAction:(id)sender {
     //initializes the db
     FIRFirestore *db = [FIRFirestore firestore];
-    NSString *email = @"testemail@google.com";
+    //allows me to grab the users email
+    FIRUser *user = [FIRAuth auth].currentUser;
+    NSLog(@"Currently logged in and trying to post is: %@",user.email);
+    NSString *email = user.email;
     //gets user data so that we can know who posted
 
     //convert the NSNumber to int!
@@ -61,12 +64,17 @@
     int intRating = [self.emojiRating intValue];
     NSLog(@"Rating for this post is: %i",intRating);
     
-    //push the post to the DB (uses addDocumentWithData in order to post without having to use a specified document path
+    //this handles the edge case of the user not selecting if the post is public or not (it makes it public automatically
+    //because that is where the segmented control defaults 
+    if(self.isPublicBool == nil){
+        self.isPublicBool = @1;
+    }
+        //push the post to the DB (uses addDocumentWithData in order to post without having to use a specified document path
     [[db collectionWithPath:@"posts"] addDocumentWithData:@{
         @"message": self.moodDescription.text,
         @"rating": [NSNumber numberWithInt:intRating],
         @"username": email,
-        @"isPublic": self.isPublicBool
+        @"isPublic": self.isPublicBool,
     } completion:^(NSError * _Nullable error) {
         if (error != nil) {
             NSLog(@"Error writing document: %@", error);
