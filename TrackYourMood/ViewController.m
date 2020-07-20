@@ -27,6 +27,10 @@
     [GIDSignIn sharedInstance].clientID = [FIRApp defaultApp].options.clientID;
     [GIDSignIn sharedInstance].delegate = self;
     
+    if([FIRAuth auth].currentUser!=nil){
+        [self performSegueWithIdentifier:@"goHomeNav" sender:nil];
+    }
+    
 }
 - (IBAction)onTapScreen:(id)sender {
     [self.view endEditing:YES];
@@ -117,7 +121,6 @@
         
     }
 }
-//
 
 
 @end

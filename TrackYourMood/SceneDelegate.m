@@ -7,6 +7,7 @@
 //
 
 #import "SceneDelegate.h"
+@import Firebase;
 
 @interface SceneDelegate ()
 
@@ -21,6 +22,12 @@
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     
     //Persisting user
+    if ([FIRAuth auth].currentUser) {
+        //go to the feed page!
+        NSLog(@"User: %@", [FIRAuth auth].currentUser);
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"tabBarHome"];
+    }
 }
 
 

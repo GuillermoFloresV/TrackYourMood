@@ -82,7 +82,7 @@
                         <outlet property="emailField" destination="9wD-0f-e7y" id="Oxh-q0-6q0"/>
                         <outlet property="passwordField" destination="wF9-Sm-RdO" id="71X-z5-jZU"/>
                         <outlet property="signInButton" destination="s6x-tY-R5G" id="Gpe-2A-8hl"/>
-                        <segue destination="7eS-Kr-Lyv" kind="presentation" identifier="goHomeNav" destinationCreationSelector="goHomeNav" modalPresentationStyle="fullScreen" id="U7D-Ec-vFV"/>
+                        <segue destination="F5k-X4-xU7" kind="presentation" identifier="goHomeNav" destinationCreationSelector="goHomeNav" modalPresentationStyle="fullScreen" id="U7D-Ec-vFV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -184,7 +184,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KsB-Pe-QEb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2013.0434782608697" y="115.84821428571428"/>
+            <point key="canvasLocation" x="1129" y="1649"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="sYe-xT-nVO">
+            <objects>
+                <viewController id="tIj-nV-84h" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jzT-Cw-Qef">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Fav-wa-E8k"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="FSE-gC-zaJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fMU-Ln-5y4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2157" y="1649"/>
         </scene>
         <!--Compose-->
         <scene sceneID="TlB-Xp-OPF">
@@ -249,8 +265,8 @@
                                     <action selector="isPublicControl:" destination="q0y-qD-fUU" eventType="valueChanged" id="bU6-ha-d4V"/>
                                 </connections>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIH-ZX-8mU">
-                                <rect key="frame" x="363" y="16" width="35" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIH-ZX-8mU">
+                                <rect key="frame" x="363" y="11" width="31" height="30"/>
                                 <state key="normal" title="Post"/>
                                 <connections>
                                     <action selector="postAction:" destination="q0y-qD-fUU" eventType="touchUpInside" id="rV2-7d-ADO"/>
@@ -304,12 +320,13 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2013" y="926"/>
+            <point key="canvasLocation" x="1129" y="2394"/>
         </scene>
-        <!--Go To Home Nav Bar-->
+        <!--Feed-->
         <scene sceneID="Z3S-No-nxS">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7eS-Kr-Lyv" customClass="goToHomeNavBar" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Feed" id="c6I-PY-2NV"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="f79-bE-1gZ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IaF-d1-sJR">
@@ -323,7 +340,44 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jyb-mE-gtl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1102.8985507246377" y="115.84821428571428"/>
+            <point key="canvasLocation" x="1129" y="903"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="SPw-RN-jjZ">
+            <objects>
+                <tabBarController storyboardIdentifier="tabBarHome" automaticallyAdjustsScrollViewInsets="NO" id="F5k-X4-xU7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9ri-I5-Vpc">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="7eS-Kr-Lyv" kind="relationship" relationship="viewControllers" id="sl6-Sf-2ba"/>
+                        <segue destination="eFk-Ep-Jm8" kind="relationship" relationship="viewControllers" id="o8H-mp-T6E"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cak-Z4-WSJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1646" y="116"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="OZA-io-03t">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eFk-Ep-Jm8" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" id="mGL-nR-vYa"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="R2I-0O-s2D">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="tIj-nV-84h" kind="relationship" relationship="rootViewController" id="nqi-FS-mal"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Moo-xE-182" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2157" y="903"/>
         </scene>
     </scenes>
     <resources>

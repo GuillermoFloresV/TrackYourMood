@@ -78,7 +78,7 @@
                   else{
                       // Do any additional setup after loading the view.
                       UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"
-                                                                                     message:[NSString stringWithFormat:@"Unable to sign in, please try again"]
+                                                                                     message:[NSString stringWithFormat:@"Unable to sign in, please go to the sign in page and try again"]
                       preferredStyle:(UIAlertControllerStyleAlert)];
                       // create an OK action
                       UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"

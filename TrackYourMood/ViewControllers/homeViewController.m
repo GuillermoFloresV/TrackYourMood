@@ -18,7 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    FIRUser *user =[FIRAuth auth].currentUser;
+    NSLog(@"%@", user.email);
 }
 
 /*
