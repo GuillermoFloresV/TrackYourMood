@@ -231,26 +231,41 @@
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="😃"/>
+                                        <connections>
+                                            <action selector="tapHappy:" destination="q0y-qD-fUU" eventType="touchUpInside" id="YIH-yX-gPH"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sGm-cS-2Bg">
                                         <rect key="frame" x="69" y="0.0" width="30" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="🙂"/>
+                                        <connections>
+                                            <action selector="tapContent:" destination="q0y-qD-fUU" eventType="touchUpInside" id="VMR-L8-ICq"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sjT-lT-ZOr">
                                         <rect key="frame" x="138" y="0.0" width="30" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="😐"/>
+                                        <connections>
+                                            <action selector="tapOkay:" destination="q0y-qD-fUU" eventType="touchUpInside" id="tN4-Pd-Wtx"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iaU-be-ZBu">
                                         <rect key="frame" x="207" y="0.0" width="30" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="😕"/>
+                                        <connections>
+                                            <action selector="tapDiscontent:" destination="q0y-qD-fUU" eventType="touchUpInside" id="iw0-OD-OfA"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JyU-qQ-6X6">
                                         <rect key="frame" x="276" y="0.0" width="30" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="😞"/>
+                                        <connections>
+                                            <action selector="tapSad:" destination="q0y-qD-fUU" eventType="touchUpInside" id="SuC-ZQ-F6c"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

@@ -17,7 +17,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *moodEmojis;
 @property (weak, nonatomic) IBOutlet UITextView *moodDescription;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *isPublicControl;
-@property (weak, nonatomic) NSNumber *emojiRating;
+@property (strong, nonatomic) NSNumber *emojiRating;
+@property (strong, nonatomic) NSNumber *isPublicBool;
 @end
 
 @implementation composeViewController
@@ -36,7 +37,7 @@
     if([self.moodDescription.text  isEqual: @"Talk about your day here..."]){
         self.moodDescription.text = @"";
         self.moodDescription.textColor = [UIColor blackColor];
-        NSNumber *emojiRating = @(5);
+        NSNumber *emojiRating;
     }
     return YES;
 }
@@ -46,6 +47,7 @@
 - (IBAction)isPublicControl:(id)sender {
     NSArray *boolean = @[@(YES),@(NO) ];
     BOOL isPublic = [boolean[self.isPublicControl.selectedSegmentIndex] boolValue];
+    self.isPublicBool = [NSNumber numberWithBool:isPublic];
     NSLog(@"%d",isPublic);
 }
 - (IBAction)postAction:(id)sender {
@@ -64,6 +66,7 @@
         @"message": self.moodDescription.text,
         @"rating": [NSNumber numberWithInt:intRating],
         @"username": email,
+        @"isPublic": self.isPublicBool
     } completion:^(NSError * _Nullable error) {
         if (error != nil) {
             NSLog(@"Error writing document: %@", error);
@@ -74,6 +77,28 @@
     //sends us back to the feed page
     [self dismissViewControllerAnimated:true completion:nil];
 }
+- (IBAction)tapHappy:(id)sender {
+    self.emojiRating = @5;
+    NSLog(@"Rating is: %@",self.emojiRating);
+}
+- (IBAction)tapContent:(id)sender {
+    self.emojiRating =@4;
+    NSLog(@"Rating is: %@",self.emojiRating);
+}
+- (IBAction)tapOkay:(id)sender {
+    self.emojiRating = @3;
+    NSLog(@"Rating is: %@",self.emojiRating);
+}
+- (IBAction)tapDiscontent:(id)sender {
+    self.emojiRating = @2;
+    NSLog(@"Rating is: %@",self.emojiRating);
+}
+- (IBAction)tapSad:(id)sender {
+    self.emojiRating = @1;
+    NSLog(@"Rating is: %@",self.emojiRating);
+}
+
+
 
 
 /*
