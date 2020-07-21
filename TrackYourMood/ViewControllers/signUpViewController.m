@@ -26,7 +26,7 @@
     NSString *email= self.emailTextField.text;
     NSString *password = self.passwordTextField.text;
     [[FIRAuth auth] createUserWithEmail:email password:password completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
-        if(error!=nil){
+        if(error==nil){
             //signs the user in with the newly created account
             if(email.length==0 || password.length==0){
                 // Do any additional setup after loading the view.
@@ -48,32 +48,32 @@
                 }];
             }
             else{
+                NSLog(@"Created new user! (stored in authentication)");
+                FIRFirestore *db = [FIRFirestore firestore];
+                // Do any additional setup after loading the view.
+                //adds user to the database (firestore database) this allows us to read their profile data in the future
+                  [[db collectionWithPath:@"users"] addDocumentWithData:@{
+                  @"name": @"",
+                  @"age": @"",
+                  @"username": email,
+                } completion:^(NSError * _Nullable error) {
+                  if (error != nil) {
+                    NSLog(@"Error writing document: %@", error);
+                  } else {
+                    NSLog(@"Document successfully written!");
+                  }
+                }];
                 [[FIRAuth auth] signInWithEmail:email
                                        password:password
                                      completion:^(FIRAuthDataResult * _Nullable authResult,
                                                   NSError * _Nullable error) {
-                  if(error != nil){
+                  if(error == nil){
                       //takes us to the home page
                       SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
                       UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                       homeViewController *homeViewController = [storyboard instantiateViewControllerWithIdentifier:@"homeViewController"];
                       sceneDelegate.window.rootViewController = homeViewController;
-                      //adds user to the database (firestore database) this allows us to read their profile data in the future
-                      
-                      FIRFirestore *db = [FIRFirestore firestore];
-                      // Do any additional setup after loading the view.
-                      // Add a new document in collection "cities"
-                        [[[db collectionWithPath:@"users"] documentWithPath:email] setData:@{
-                        @"name": @"",
-                        @"age": @"",
-                        @"username": email,
-                      } completion:^(NSError * _Nullable error) {
-                        if (error != nil) {
-                          NSLog(@"Error writing document: %@", error);
-                        } else {
-                          NSLog(@"Document successfully written!");
-                        }
-                      }];
+                    
                   }
                   else{
                       // Do any additional setup after loading the view.
@@ -97,6 +97,7 @@
                 }];
             }
         }
+        
         else{
             // Do any additional setup after loading the view.
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"

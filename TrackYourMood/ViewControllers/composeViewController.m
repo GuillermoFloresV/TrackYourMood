@@ -67,7 +67,8 @@
     //this handles the edge case of the user not selecting if the post is public or not (it makes it public automatically
     //because that is where the segmented control defaults 
     if(self.isPublicBool == nil){
-        self.isPublicBool = @1;
+        BOOL defaultPrivacy = YES;
+        self.isPublicBool = [NSNumber numberWithBool:defaultPrivacy];
     }
         //push the post to the DB (uses addDocumentWithData in order to post without having to use a specified document path
     [[db collectionWithPath:@"posts"] addDocumentWithData:@{
