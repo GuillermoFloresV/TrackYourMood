@@ -10,6 +10,7 @@
 		2FBC0D50EA0D4F6A3B48A56D /* Pods_TrackYourMood_TrackYourMoodUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6596CC4D2B007FB5D39EEB6 /* Pods_TrackYourMood_TrackYourMoodUITests.framework */; };
 		8B4544B6AB7E5CDC7D2354CA /* Pods_TrackYourMood.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07EE90D54D128658404ADDDD /* Pods_TrackYourMood.framework */; };
 		B80C793224C66E8100336DA7 /* profileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B80C793124C66E8100336DA7 /* profileViewController.m */; };
+		B80C793524C7AEDE00336DA7 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B80C793424C7AEDE00336DA7 /* PostCell.m */; };
 		B840DDBD24BCEDDB001CBF87 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B840DDBC24BCEDDB001CBF87 /* AppDelegate.m */; };
 		B840DDC024BCEDDB001CBF87 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B840DDBF24BCEDDB001CBF87 /* SceneDelegate.m */; };
 		B840DDC324BCEDDB001CBF87 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B840DDC224BCEDDB001CBF87 /* ViewController.m */; };
@@ -54,6 +55,8 @@
 		926CF339E7FF8E5BF9DA6A4C /* Pods-TrackYourMoodTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackYourMoodTests.debug.xcconfig"; path = "Target Support Files/Pods-TrackYourMoodTests/Pods-TrackYourMoodTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B80C793024C66E8100336DA7 /* profileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = profileViewController.h; path = ViewControllers/profileViewController.h; sourceTree = "<group>"; };
 		B80C793124C66E8100336DA7 /* profileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = profileViewController.m; path = ViewControllers/profileViewController.m; sourceTree = "<group>"; };
+		B80C793324C7AEDE00336DA7 /* PostCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCell.h; sourceTree = "<group>"; };
+		B80C793424C7AEDE00336DA7 /* PostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
 		B840DDB824BCEDDB001CBF87 /* TrackYourMood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackYourMood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B840DDBB24BCEDDB001CBF87 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B840DDBC24BCEDDB001CBF87 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -155,6 +158,8 @@
 				B840DDC124BCEDDB001CBF87 /* ViewController.h */,
 				B840DDC224BCEDDB001CBF87 /* ViewController.m */,
 				B840DDC424BCEDDB001CBF87 /* Main.storyboard */,
+				B80C793324C7AEDE00336DA7 /* PostCell.h */,
+				B80C793424C7AEDE00336DA7 /* PostCell.m */,
 				B80C793024C66E8100336DA7 /* profileViewController.h */,
 				B80C793124C66E8100336DA7 /* profileViewController.m */,
 				B840DDF824C0F7DF001CBF87 /* composeViewController.h */,
@@ -480,6 +485,7 @@
 				B80C793224C66E8100336DA7 /* profileViewController.m in Sources */,
 				B840DDFA24C0F7DF001CBF87 /* composeViewController.m in Sources */,
 				B840DDBD24BCEDDB001CBF87 /* AppDelegate.m in Sources */,
+				B80C793524C7AEDE00336DA7 /* PostCell.m in Sources */,
 				B840DDCE24BCEDDB001CBF87 /* main.m in Sources */,
 				B840DDF424BD1834001CBF87 /* homeViewController.m in Sources */,
 				B840DDC024BCEDDB001CBF87 /* SceneDelegate.m in Sources */,

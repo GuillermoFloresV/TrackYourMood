@@ -71,7 +71,7 @@
                       //takes us to the home page
                       SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
                       UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                      homeViewController *homeViewController = [storyboard instantiateViewControllerWithIdentifier:@"homeViewController"];
+                      homeViewController *homeViewController = [storyboard instantiateViewControllerWithIdentifier:@"tabBarHome"];
                       sceneDelegate.window.rootViewController = homeViewController;
                     
                   }
