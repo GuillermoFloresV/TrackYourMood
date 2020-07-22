@@ -28,16 +28,17 @@ Mood tracking app that reminds users daily (either at a default time or at a tim
 
 **Required Must-have Stories**
 
-* User will be able sign in to their existing account or register for a new one (can also use Google as an authentication source)
+* User will be able sign in to their existing account or register for a new one.
+* User can also use Google as an authentication source.
 * User will be able to write down their mood / feelings, and have an option to make it private
-* User will be able to edit their writings or mood even after they submit it
+* User’s profile view will be sorted by most recent posts
 * User’s feed view will be sorted by most recent posts
 * User can have a local account (save the mood logs locally)
 
 
 **Optional Nice-to-have Stories**
  
-
+* User will be able to edit their writings or mood even after they submit it
 * App will send user a notification to remind them to log their mood for the day
 * Give the user the ability to change default time they receive notifications for 
 * User can delete their posts
