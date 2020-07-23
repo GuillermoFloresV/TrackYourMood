@@ -80,13 +80,14 @@
                     </view>
                     <connections>
                         <outlet property="emailField" destination="9wD-0f-e7y" id="Oxh-q0-6q0"/>
+                        <outlet property="googleSignInButton" destination="s6x-tY-R5G" id="usD-QE-k3y"/>
                         <outlet property="passwordField" destination="wF9-Sm-RdO" id="71X-z5-jZU"/>
                         <outlet property="signInButton" destination="s6x-tY-R5G" id="Gpe-2A-8hl"/>
                         <segue destination="F5k-X4-xU7" kind="presentation" identifier="goHomeNav" destinationCreationSelector="goHomeNav" modalPresentationStyle="fullScreen" id="U7D-Ec-vFV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="GF1-Oe-gPQ">
+                <tapGestureRecognizer cancelsTouchesInView="NO" id="GF1-Oe-gPQ">
                     <connections>
                         <action selector="onTapScreen:" destination="BYZ-38-t0r" id="3kB-r2-9Gg"/>
                     </connections>
@@ -466,6 +467,7 @@
                 <tabBarController storyboardIdentifier="tabBarHome" automaticallyAdjustsScrollViewInsets="NO" id="F5k-X4-xU7" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9ri-I5-Vpc">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

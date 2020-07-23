@@ -13,8 +13,7 @@
 @import FirebaseAuth;
 @import GoogleSignIn;
 @interface ViewController ()
-@property (weak, nonatomic) IBOutlet GIDSignInButton *signInButton;
-
+@property (weak, nonatomic) IBOutlet GIDSignInButton *googleSignInButton;
 @end
 
 @implementation ViewController
@@ -27,9 +26,6 @@
     [GIDSignIn sharedInstance].clientID = [FIRApp defaultApp].options.clientID;
     [GIDSignIn sharedInstance].delegate = self;
     
-    if([FIRAuth auth].currentUser!=nil){
-        [self performSegueWithIdentifier:@"goHomeNav" sender:nil];
-    }
     
 }
 - (IBAction)onTapScreen:(id)sender {
@@ -97,28 +93,16 @@
         
         [[FIRAuth auth] signInWithCredential:credential completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
             if(user){
-                // Do any additional setup after loading the view.
-                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Firebase"
-                                                                               message:[NSString stringWithFormat:@"Welcome to TrackYourMood, %@", user.profile.name]
-                preferredStyle:(UIAlertControllerStyleAlert)];
-                // create an OK action
-                UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
-                                                                   style:UIAlertActionStyleDefault
-                                                                 handler:^(UIAlertAction * _Nonnull action) {
-                                                                         // handle response here.
-                                                                 }];
-                // add the OK action to the alert controller
-                [alert addAction:okAction];
-                [self presentViewController:alert animated:YES completion:^{
-                    // optional code for what happens after the alert controller has finished presenting
-                    SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
-                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                    homeViewController *homeViewController = [storyboard instantiateViewControllerWithIdentifier:@"homeViewController"];
-                    sceneDelegate.window.rootViewController = homeViewController;
-                }];
+                SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                homeViewController *homeViewController = [storyboard instantiateViewControllerWithIdentifier:@"tabBarHome"];
+                sceneDelegate.window.rootViewController = homeViewController;
             }
         }];
         
+    }
+    else{
+        NSLog(@"Error: %@", error.localizedDescription);
     }
 }
 
