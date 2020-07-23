@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *isPublicControl;
 @property (strong, nonatomic) NSNumber *emojiRating;
 @property (strong, nonatomic) NSNumber *isPublicBool;
+@property (weak, nonatomic) IBOutlet UIButton *postButton;
 @end
 
 @implementation composeViewController
@@ -30,7 +31,8 @@
     self.moodDescription.text = @"Talk about your day here...";
     self.moodDescription.delegate = self;
     
-    
+    //disables the button so that users cant post the preset text
+    _postButton.enabled = NO;
 }
 - (BOOL) textViewShouldBeginEditing:(UITextView *)moodDescription{
     //super hacky way to have the placeholder text disappear (want to fix later)
@@ -89,26 +91,37 @@
 - (IBAction)tapHappy:(id)sender {
     self.emojiRating = @5;
     NSLog(@"Rating is: %@",self.emojiRating);
+    [self enableButton];
 }
 - (IBAction)tapContent:(id)sender {
     self.emojiRating =@4;
     NSLog(@"Rating is: %@",self.emojiRating);
+    [self enableButton];
 }
 - (IBAction)tapOkay:(id)sender {
     self.emojiRating = @3;
     NSLog(@"Rating is: %@",self.emojiRating);
+    [self enableButton];
 }
 - (IBAction)tapDiscontent:(id)sender {
     self.emojiRating = @2;
     NSLog(@"Rating is: %@",self.emojiRating);
+    [self enableButton];
 }
 - (IBAction)tapSad:(id)sender {
     self.emojiRating = @1;
     NSLog(@"Rating is: %@",self.emojiRating);
+    [self enableButton];
 }
 
 
-
+-(void)enableButton{
+    if(self.moodDescription.text.length >0 && ![self.moodDescription.text  isEqual: @"Talk about your day here..."])
+    {
+        //re-enables the button to be able to post things
+        _postButton.enabled = YES;
+    }
+}
 
 /*
 #pragma mark - Navigation

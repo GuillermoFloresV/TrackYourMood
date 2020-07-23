@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface composeViewController : UIViewController
-
+-(void) enableButton;
 @end
 
 NS_ASSUME_NONNULL_END

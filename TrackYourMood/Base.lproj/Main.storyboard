@@ -315,7 +315,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="e2W-Dn-qyV">
-                                <rect key="frame" x="20" y="54" width="374" height="226"/>
+                                <rect key="frame" x="20" y="52" width="374" height="228"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -323,7 +323,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How was your day?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dy2-N6-xbd">
-                                <rect key="frame" x="131" y="16" width="150.5" height="22"/>
+                                <rect key="frame" x="131" y="16" width="150.5" height="20"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -384,8 +384,8 @@
                                     <action selector="isPublicControl:" destination="q0y-qD-fUU" eventType="valueChanged" id="bU6-ha-d4V"/>
                                 </connections>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIH-ZX-8mU">
-                                <rect key="frame" x="363" y="11" width="31" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIH-ZX-8mU">
+                                <rect key="frame" x="363" y="8" width="31" height="36"/>
                                 <state key="normal" title="Post"/>
                                 <connections>
                                     <action selector="postAction:" destination="q0y-qD-fUU" eventType="touchUpInside" id="rV2-7d-ADO"/>
@@ -403,16 +403,15 @@
                             <constraint firstItem="nIH-ZX-8mU" firstAttribute="leading" secondItem="dy2-N6-xbd" secondAttribute="trailing" constant="81.5" id="K3B-yi-gAH"/>
                             <constraint firstItem="W9W-FP-xD3" firstAttribute="leading" secondItem="erS-ja-L8v" secondAttribute="leading" constant="54" id="K8G-YY-gr7"/>
                             <constraint firstItem="W9W-FP-xD3" firstAttribute="top" secondItem="e2W-Dn-qyV" secondAttribute="bottom" constant="72" id="T8I-3N-W3v"/>
+                            <constraint firstItem="nIH-ZX-8mU" firstAttribute="top" secondItem="erS-ja-L8v" secondAttribute="top" constant="8" id="d9a-bw-gcq"/>
                             <constraint firstItem="e2W-Dn-qyV" firstAttribute="top" secondItem="nIH-ZX-8mU" secondAttribute="bottom" constant="8" id="f7k-r6-m9q"/>
                             <constraint firstItem="erS-ja-L8v" firstAttribute="bottom" secondItem="BFS-iI-Ut6" secondAttribute="bottom" constant="278" id="jI3-Gs-u0R"/>
                             <constraint firstItem="erS-ja-L8v" firstAttribute="trailing" secondItem="e2W-Dn-qyV" secondAttribute="trailing" constant="20" id="lcx-EX-6Hq"/>
                             <constraint firstItem="erS-ja-L8v" firstAttribute="trailing" secondItem="W9W-FP-xD3" secondAttribute="trailing" constant="54" id="nIz-45-ioX"/>
                             <constraint firstItem="erS-ja-L8v" firstAttribute="bottom" secondItem="W9W-FP-xD3" secondAttribute="bottom" constant="414" id="onK-fN-Huh"/>
-                            <constraint firstItem="nIH-ZX-8mU" firstAttribute="top" secondItem="erS-ja-L8v" secondAttribute="top" constant="16" id="qiE-SY-6IA"/>
                             <constraint firstItem="erS-ja-L8v" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="dy2-N6-xbd" secondAttribute="trailing" constant="132.5" id="svE-CW-CY0"/>
                             <constraint firstItem="BFS-iI-Ut6" firstAttribute="leading" secondItem="erS-ja-L8v" secondAttribute="leading" constant="145" id="uhn-9U-TH8"/>
                             <constraint firstItem="dy2-N6-xbd" firstAttribute="top" secondItem="erS-ja-L8v" secondAttribute="top" constant="16" id="vVi-Sq-JVH"/>
-                            <constraint firstItem="erS-ja-L8v" firstAttribute="trailing" secondItem="nIH-ZX-8mU" secondAttribute="trailing" constant="16" id="ywY-TK-YmA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="erS-ja-L8v"/>
                         <connections>
@@ -430,6 +429,7 @@
                         <outlet property="isPublicControl" destination="BFS-iI-Ut6" id="drf-Rx-Jqd"/>
                         <outlet property="moodDescription" destination="e2W-Dn-qyV" id="fQv-4Y-7iZ"/>
                         <outlet property="moodEmojis" destination="sjT-lT-ZOr" id="bcP-yx-M2p"/>
+                        <outlet property="postButton" destination="nIH-ZX-8mU" id="p7x-Vc-u6T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qEG-dX-eQZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
