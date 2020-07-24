@@ -26,7 +26,6 @@
     [GIDSignIn sharedInstance].clientID = [FIRApp defaultApp].options.clientID;
     [GIDSignIn sharedInstance].delegate = self;
     
-    
 }
 - (IBAction)onTapScreen:(id)sender {
     [self.view endEditing:YES];

@@ -21,24 +21,24 @@
 - (void)viewDidLoad {
     self.postsTableView.delegate = self;
     self.postsTableView.dataSource = self;
+    self.postsTableView.rowHeight = 125;
     [super viewDidLoad];
+    
+    //initializes the array that holds our posts
     self.postArray = [[NSMutableArray alloc] init];
     FIRUser *user =[FIRAuth auth].currentUser;
     NSLog(@"%@", user.email);
     
+    //grabs our posts
     FIRFirestore *db = [FIRFirestore firestore];
     [[db collectionWithPath:@"posts"]
         getDocumentsWithCompletion:^(FIRQuerySnapshot *snapshot, NSError *error) {
           if (error != nil) {
             NSLog(@"Error getting documents: %@", error);
           } else {
-              NSInteger test = 0;
             for (FIRDocumentSnapshot *document in snapshot.documents) {
                 //adds the post data into an array
                 [self.postArray addObject:document.data];
-                NSLog(@"Document: %@", self.postArray[0]);
-                test+=1;
-                NSLog(@"current count: %ld", (long)test);
             }
           }
                     [self.postsTableView reloadData];
@@ -63,8 +63,7 @@
     cell.postLabel.text = postData[@"message"];
     cell.usernameLabel.text = postData[@"username"];
     NSLog(@"Document Data: %@", postData.description);
-    //    NSLog(@"Username: %@", postData[@"username"]);
-//    NSLog(@"Message: %@", postData[@"message"]);
+
     return cell;
     }
 
@@ -73,5 +72,7 @@
     return self.postArray.count;
 }
 
-
+-(void)showEmojiRating{
+    
+}
 @end
