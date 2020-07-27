@@ -9,15 +9,19 @@
 #import "profileViewController.h"
 #import "SceneDelegate.h"
 #import "ViewController.h"
+#import "PostCell.h"
 @import Firebase;
-@interface profileViewController ()
+@interface profileViewController () <UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *postsTableView;
 @property (strong, nonatomic) NSMutableArray *optionsArray;
+@property (strong, nonatomic) NSMutableArray *postsArray;
 @end
 
 @implementation profileViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.postsArray = [[NSMutableArray alloc] init];
     // Do any additional setup after loading the view.
     [self.optionsArray addObject:@"Logout"];
 }
@@ -56,5 +60,20 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    PostCell *cell = [self.postsTableView dequeueReusableCellWithIdentifier:(@"PostCell")];
+    NSDictionary *postData = self.postsArray[indexPath.row];
+    
+    cell.postLabel.text = postData[@"message"];
+    cell.usernameLabel.text = postData[@"username"];
+    NSLog(@"Document Data: %@", postData.description);
+
+    return cell;
+}
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 5;
+}
 
 @end

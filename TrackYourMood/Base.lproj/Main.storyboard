@@ -258,7 +258,38 @@
                     <view key="view" contentMode="scaleToFill" id="jzT-Cw-Qef">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCw-TS-OrS">
+                                <rect key="frame" x="126" y="96" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3uA-Oj-3hC">
+                                <rect key="frame" x="0.0" y="248" width="414" height="565"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="opg-zk-ddC">
+                                <rect key="frame" x="8" y="96" width="110" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="CD7-R2-v0H"/>
+                                    <constraint firstAttribute="width" constant="110" id="RyM-1J-Rhc"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="NCw-TS-OrS" firstAttribute="leading" secondItem="opg-zk-ddC" secondAttribute="trailing" constant="8" id="5dF-N8-xEr"/>
+                            <constraint firstItem="opg-zk-ddC" firstAttribute="top" secondItem="Fav-wa-E8k" secondAttribute="top" constant="8" id="LxU-BL-GjF"/>
+                            <constraint firstItem="3uA-Oj-3hC" firstAttribute="top" secondItem="opg-zk-ddC" secondAttribute="bottom" constant="42" id="Pcv-Ad-4s1"/>
+                            <constraint firstItem="NCw-TS-OrS" firstAttribute="leading" secondItem="opg-zk-ddC" secondAttribute="trailing" constant="8" id="Xb8-RM-tFA"/>
+                            <constraint firstItem="3uA-Oj-3hC" firstAttribute="leading" secondItem="Fav-wa-E8k" secondAttribute="leading" id="ZX6-OH-Kj1"/>
+                            <constraint firstItem="NCw-TS-OrS" firstAttribute="top" secondItem="Fav-wa-E8k" secondAttribute="top" constant="8" id="ezg-i3-ByG"/>
+                            <constraint firstItem="opg-zk-ddC" firstAttribute="leading" secondItem="Fav-wa-E8k" secondAttribute="leading" constant="8" id="mEC-jA-dX8"/>
+                            <constraint firstItem="Fav-wa-E8k" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="NCw-TS-OrS" secondAttribute="trailing" constant="8" id="pim-f1-Qy4"/>
+                            <constraint firstItem="3uA-Oj-3hC" firstAttribute="trailing" secondItem="Fav-wa-E8k" secondAttribute="trailing" id="rOI-3m-rOw"/>
+                            <constraint firstItem="3uA-Oj-3hC" firstAttribute="bottom" secondItem="Fav-wa-E8k" secondAttribute="bottom" id="uCQ-Tt-GnV"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Fav-wa-E8k"/>
                     </view>
                     <navigationItem key="navigationItem" id="FSE-gC-zaJ">
@@ -275,10 +306,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="postsTableView" destination="3uA-Oj-3hC" id="fKy-b5-GM4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fMU-Ln-5y4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2157" y="1649"/>
+            <point key="canvasLocation" x="2156.521739130435" y="1648.6607142857142"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="Z0O-IB-964">
