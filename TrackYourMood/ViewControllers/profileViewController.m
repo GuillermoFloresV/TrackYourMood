@@ -11,19 +11,44 @@
 #import "ViewController.h"
 #import "PostCell.h"
 @import Firebase;
+@import FirebaseFirestore;
 @interface profileViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *postsTableView;
 @property (strong, nonatomic) NSMutableArray *optionsArray;
 @property (strong, nonatomic) NSMutableArray *postsArray;
 @end
-
 @implementation profileViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.postsArray = [[NSMutableArray alloc] init];
     // Do any additional setup after loading the view.
+    self.postsArray = [[NSMutableArray alloc] init];
     [self.optionsArray addObject:@"Logout"];
+    self.postsTableView.delegate = self;
+    self.postsTableView.dataSource = self;
+    self.postsTableView.rowHeight = 125;
+    
+    FIRUser *user = [FIRAuth auth].currentUser;
+    NSString *currEmail = user.email;
+    
+    //grabs the specific user's posts
+    FIRFirestore *db = [FIRFirestore firestore];
+    [[db collectionWithPath:@"posts"]
+     getDocumentsWithCompletion:^(FIRQuerySnapshot *snapshot, NSError *error) {
+          if (error != nil) {
+            NSLog(@"Error getting documents: %@", error);
+          } else {
+            for (FIRDocumentSnapshot *document in snapshot.documents) {
+                //adds the post data into an array
+                NSString *currUser = document.data[@"username"];
+                if([currUser isEqualToString:currEmail] ){
+                    //if the user matches the curr user then it gets added to the array for showing
+                    [self.postsArray addObject:document.data];
+                }
+            }
+          }
+                    [self.postsTableView reloadData];
+        }];
 }
 - (IBAction)logoutAction:(id)sender {
     [[FIRAuth auth] signOut:(nil)];
@@ -67,13 +92,12 @@
     
     cell.postLabel.text = postData[@"message"];
     cell.usernameLabel.text = postData[@"username"];
-    NSLog(@"Document Data: %@", postData.description);
 
     return cell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return self.postsArray.count;
 }
 
 @end
