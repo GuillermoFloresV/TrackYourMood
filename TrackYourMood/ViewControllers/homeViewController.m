@@ -32,13 +32,18 @@
     //grabs our posts
     FIRFirestore *db = [FIRFirestore firestore];
     [[db collectionWithPath:@"posts"]
-        getDocumentsWithCompletion:^(FIRQuerySnapshot *snapshot, NSError *error) {
+     getDocumentsWithCompletion:^(FIRQuerySnapshot *snapshot, NSError *error) {
           if (error != nil) {
             NSLog(@"Error getting documents: %@", error);
           } else {
             for (FIRDocumentSnapshot *document in snapshot.documents) {
                 //adds the post data into an array
-                [self.postArray addObject:document.data];
+                NSNumber *one = @1;
+                NSNumber *convertedBool = document.data[@"isPublic"];
+                if([convertedBool doubleValue] == [one doubleValue] ){
+                    //this means that the document is public, therefore it does get shown
+                    [self.postArray addObject:document.data];
+                }
             }
           }
                     [self.postsTableView reloadData];
