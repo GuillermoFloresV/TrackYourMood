@@ -13,6 +13,7 @@
 		B80C793524C7AEDE00336DA7 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B80C793424C7AEDE00336DA7 /* PostCell.m */; };
 		B80C793B24D21ED700336DA7 /* ProfilePost.m in Sources */ = {isa = PBXBuildFile; fileRef = B80C793A24D21ED700336DA7 /* ProfilePost.m */; };
 		B80C793D24D2243400336DA7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B80C793C24D2243400336DA7 /* CoreData.framework */; };
+		B80C794024D225A900336DA7 /* PostModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B80C793E24D225A900336DA7 /* PostModel.xcdatamodeld */; };
 		B840DDBD24BCEDDB001CBF87 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B840DDBC24BCEDDB001CBF87 /* AppDelegate.m */; };
 		B840DDC024BCEDDB001CBF87 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B840DDBF24BCEDDB001CBF87 /* SceneDelegate.m */; };
 		B840DDC324BCEDDB001CBF87 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B840DDC224BCEDDB001CBF87 /* ViewController.m */; };
@@ -62,6 +63,7 @@
 		B80C793924D21ED700336DA7 /* ProfilePost.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfilePost.h; sourceTree = "<group>"; };
 		B80C793A24D21ED700336DA7 /* ProfilePost.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfilePost.m; sourceTree = "<group>"; };
 		B80C793C24D2243400336DA7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B80C793F24D225A900336DA7 /* PostModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PostModel.xcdatamodel; sourceTree = "<group>"; };
 		B840DDB824BCEDDB001CBF87 /* TrackYourMood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackYourMood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B840DDBB24BCEDDB001CBF87 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B840DDBC24BCEDDB001CBF87 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				B80C793124C66E8100336DA7 /* profileViewController.m */,
 				B840DDF824C0F7DF001CBF87 /* composeViewController.h */,
 				B840DDF924C0F7DF001CBF87 /* composeViewController.m */,
+				B80C793E24D225A900336DA7 /* PostModel.xcdatamodeld */,
 				B840DDF224BD1834001CBF87 /* homeViewController.h */,
 				B840DDF324BD1834001CBF87 /* homeViewController.m */,
 				B840DDF524BD7ACC001CBF87 /* signUpViewController.h */,
@@ -498,6 +501,7 @@
 				B80C793524C7AEDE00336DA7 /* PostCell.m in Sources */,
 				B840DDCE24BCEDDB001CBF87 /* main.m in Sources */,
 				B840DDF424BD1834001CBF87 /* homeViewController.m in Sources */,
+				B80C794024D225A900336DA7 /* PostModel.xcdatamodeld in Sources */,
 				B840DDC024BCEDDB001CBF87 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -819,6 +823,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B80C793E24D225A900336DA7 /* PostModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B80C793F24D225A900336DA7 /* PostModel.xcdatamodel */,
+			);
+			currentVersion = B80C793F24D225A900336DA7 /* PostModel.xcdatamodel */;
+			name = PostModel.xcdatamodeld;
+			path = Resources/PostModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B840DDB024BCEDDB001CBF87 /* Project object */;
 }
