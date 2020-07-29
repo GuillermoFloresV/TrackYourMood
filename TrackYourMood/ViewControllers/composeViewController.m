@@ -9,6 +9,7 @@
 #import "composeViewController.h"
 #import "SceneDelegate.h"
 #import "homeViewController.h"
+#import "CoreData/CoreData.h"
 @import FirebaseFirestore;
 @import Firebase;
 @import FirebaseAuth;

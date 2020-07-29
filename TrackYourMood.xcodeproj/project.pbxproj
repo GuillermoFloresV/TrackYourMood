@@ -12,6 +12,7 @@
 		B80C793224C66E8100336DA7 /* profileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B80C793124C66E8100336DA7 /* profileViewController.m */; };
 		B80C793524C7AEDE00336DA7 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B80C793424C7AEDE00336DA7 /* PostCell.m */; };
 		B80C793B24D21ED700336DA7 /* ProfilePost.m in Sources */ = {isa = PBXBuildFile; fileRef = B80C793A24D21ED700336DA7 /* ProfilePost.m */; };
+		B80C793D24D2243400336DA7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B80C793C24D2243400336DA7 /* CoreData.framework */; };
 		B840DDBD24BCEDDB001CBF87 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B840DDBC24BCEDDB001CBF87 /* AppDelegate.m */; };
 		B840DDC024BCEDDB001CBF87 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B840DDBF24BCEDDB001CBF87 /* SceneDelegate.m */; };
 		B840DDC324BCEDDB001CBF87 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B840DDC224BCEDDB001CBF87 /* ViewController.m */; };
@@ -60,6 +61,7 @@
 		B80C793424C7AEDE00336DA7 /* PostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
 		B80C793924D21ED700336DA7 /* ProfilePost.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfilePost.h; sourceTree = "<group>"; };
 		B80C793A24D21ED700336DA7 /* ProfilePost.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfilePost.m; sourceTree = "<group>"; };
+		B80C793C24D2243400336DA7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B840DDB824BCEDDB001CBF87 /* TrackYourMood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackYourMood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B840DDBB24BCEDDB001CBF87 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B840DDBC24BCEDDB001CBF87 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B80C793D24D2243400336DA7 /* CoreData.framework in Frameworks */,
 				8B4544B6AB7E5CDC7D2354CA /* Pods_TrackYourMood.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,6 +206,7 @@
 		E2B4CFD817826941D45A00CF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B80C793C24D2243400336DA7 /* CoreData.framework */,
 				07EE90D54D128658404ADDDD /* Pods_TrackYourMood.framework */,
 				F6596CC4D2B007FB5D39EEB6 /* Pods_TrackYourMood_TrackYourMoodUITests.framework */,
 				0E9484C76147678A2C90FE36 /* Pods_TrackYourMoodTests.framework */,
