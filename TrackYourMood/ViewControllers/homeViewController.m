@@ -14,6 +14,8 @@
 @interface homeViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *postsTableView;
 @property (strong, nonatomic) NSMutableArray *postArray;
+
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 @end
 
 @implementation homeViewController
@@ -23,6 +25,10 @@
     self.postsTableView.dataSource = self;
     self.postsTableView.rowHeight = 125;
     [super viewDidLoad];
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.postsTableView insertSubview:self.refreshControl atIndex:0];
     
     //initializes the array that holds our posts
     self.postArray = [[NSMutableArray alloc] init];
@@ -47,6 +53,28 @@
             }
           }
                     [self.postsTableView reloadData];
+        }];
+}
+- (void)beginRefresh:(UIRefreshControl *)refreshFeed {
+    
+    FIRFirestore *db = [FIRFirestore firestore];
+    [[db collectionWithPath:@"posts"]
+     getDocumentsWithCompletion:^(FIRQuerySnapshot *snapshot, NSError *error) {
+          if (error != nil) {
+            NSLog(@"Error getting documents: %@", error);
+          } else {
+            for (FIRDocumentSnapshot *document in snapshot.documents) {
+                //adds the post data into an array
+                NSNumber *one = @1;
+                NSNumber *convertedBool = document.data[@"isPublic"];
+                if([convertedBool doubleValue] == [one doubleValue] ){
+                    //this means that the document is public, therefore it does get shown
+                    [self.postArray addObject:document.data];
+                }
+            }
+          }
+        [self.postsTableView reloadData];
+        [self.refreshControl endRefreshing];
         }];
 }
 

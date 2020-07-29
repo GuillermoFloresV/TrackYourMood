@@ -57,7 +57,7 @@
                                password:password
                              completion:^(FIRAuthDataResult * _Nullable authResult,
                                           NSError * _Nullable error) {
-          if(error != nil){
+          if(error == nil){
               [self performSegueWithIdentifier:@"goHomeNav" sender:nil];
           }
           else{

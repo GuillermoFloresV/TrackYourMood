@@ -9,13 +9,14 @@
 #import "profileViewController.h"
 #import "SceneDelegate.h"
 #import "ViewController.h"
-#import "PostCell.h"
+#import "ProfilePost.h"
 @import Firebase;
 @import FirebaseFirestore;
 @interface profileViewController () <UITableViewDataSource, UITableViewDelegate>
-@property (weak, nonatomic) IBOutlet UITableView *postsTableView;
+@property (weak, nonatomic) IBOutlet UITableView *postTableView;
 @property (strong, nonatomic) NSMutableArray *optionsArray;
 @property (strong, nonatomic) NSMutableArray *postsArray;
+@property (weak, nonatomic) IBOutlet UILabel *profileUserLabel;
 @end
 @implementation profileViewController
 
@@ -23,13 +24,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.postsArray = [[NSMutableArray alloc] init];
+    self.optionsArray = [[NSMutableArray alloc] init];
     [self.optionsArray addObject:@"Logout"];
-    self.postsTableView.delegate = self;
-    self.postsTableView.dataSource = self;
-    self.postsTableView.rowHeight = 125;
+    self.postTableView.delegate = self;
+    self.postTableView.dataSource = self;
+    self.postTableView.rowHeight = 125;
     
     FIRUser *user = [FIRAuth auth].currentUser;
     NSString *currEmail = user.email;
+    self.profileUserLabel.text = currEmail;
     
     //grabs the specific user's posts
     FIRFirestore *db = [FIRFirestore firestore];
@@ -44,10 +47,11 @@
                 if([currUser isEqualToString:currEmail] ){
                     //if the user matches the curr user then it gets added to the array for showing
                     [self.postsArray addObject:document.data];
+                    NSLog(@"Added to the profile array!");
                 }
             }
           }
-                    [self.postsTableView reloadData];
+                    [self.postTableView reloadData];
         }];
 }
 - (IBAction)logoutAction:(id)sender {
@@ -86,15 +90,19 @@
 }
 */
 
-- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    PostCell *cell = [self.postsTableView dequeueReusableCellWithIdentifier:(@"PostCell")];
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)postTableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    
+    ProfilePost *cell = [postTableView dequeueReusableCellWithIdentifier:(@"ProfilePostCell")];
     NSDictionary *postData = self.postsArray[indexPath.row];
     
-    cell.postLabel.text = postData[@"message"];
-    cell.usernameLabel.text = postData[@"username"];
+    cell.profilePost.text = postData[@"message"];
+    cell.profileUsername.text = postData[@"username"];
+    NSLog(@"Document Data: %@", postData.description);
 
     return cell;
 }
+
+
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.postsArray.count;

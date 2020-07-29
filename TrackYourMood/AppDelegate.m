@@ -19,7 +19,7 @@
     // Override point for customization after application launch.
     [FIRApp configure];
     FIRFirestore *defaultFirestore = [FIRFirestore firestore];
-
+    FIRFirestore *db = [FIRFirestore firestore];
     return YES;
 }
 
