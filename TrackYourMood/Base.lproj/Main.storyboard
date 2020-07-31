@@ -206,6 +206,13 @@
                                                         <constraint firstAttribute="width" constant="80" id="gVc-dq-3Ys"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fa3-4m-nR8">
+                                                    <rect key="frame" x="27" y="96" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="usu-k4-L2q" firstAttribute="top" secondItem="8V7-HP-kC0" secondAttribute="topMargin" constant="8" id="6VW-0u-WbM"/>
@@ -219,6 +226,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="emojiLabel" destination="Fa3-4m-nR8" id="orw-dp-e2y"/>
                                             <outlet property="postLabel" destination="aa8-X9-brn" id="sIu-XQ-rjB"/>
                                             <outlet property="profilePictureView" destination="7kX-CK-TjC" id="off-zJ-Aby"/>
                                             <outlet property="usernameLabel" destination="usu-k4-L2q" id="f96-O5-lsM"/>
@@ -304,9 +312,16 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ojs-zu-QdY">
+                                                    <rect key="frame" x="47" y="107" width="42" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="COq-r6-0Cz" firstAttribute="leading" secondItem="7YV-m0-Flk" secondAttribute="trailing" constant="16" id="0kf-CD-pZR"/>
+                                                <constraint firstItem="ojs-zu-QdY" firstAttribute="top" secondItem="7YV-m0-Flk" secondAttribute="bottom" constant="8" id="4nB-qc-gLL"/>
                                                 <constraint firstItem="2QB-et-Twt" firstAttribute="top" secondItem="U4n-5D-gM5" secondAttribute="topMargin" constant="8" id="7eG-9D-A6q"/>
                                                 <constraint firstItem="7YV-m0-Flk" firstAttribute="top" secondItem="U4n-5D-gM5" secondAttribute="topMargin" constant="8" id="9Jv-rq-b7T"/>
                                                 <constraint firstItem="COq-r6-0Cz" firstAttribute="trailing" secondItem="U4n-5D-gM5" secondAttribute="trailingMargin" constant="8" id="9Po-WS-En3"/>
@@ -314,10 +329,14 @@
                                                 <constraint firstItem="COq-r6-0Cz" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="U4n-5D-gM5" secondAttribute="bottomMargin" constant="8" id="GFL-v3-JcX"/>
                                                 <constraint firstItem="2QB-et-Twt" firstAttribute="leading" secondItem="7YV-m0-Flk" secondAttribute="trailing" constant="8" id="ITB-xw-Jqp"/>
                                                 <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="2QB-et-Twt" secondAttribute="trailing" constant="194" id="JdW-2c-lSY"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ojs-zu-QdY" secondAttribute="bottom" constant="8" id="WfW-Tu-dSm"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="ojs-zu-QdY" secondAttribute="trailing" constant="305" id="a2p-v2-6XI"/>
+                                                <constraint firstItem="ojs-zu-QdY" firstAttribute="leading" secondItem="U4n-5D-gM5" secondAttribute="leadingMargin" constant="27" id="kdW-YJ-ekL"/>
                                                 <constraint firstItem="COq-r6-0Cz" firstAttribute="top" secondItem="2QB-et-Twt" secondAttribute="bottom" constant="8" id="oqm-WD-a4q"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="emojiLabel" destination="ojs-zu-QdY" id="lc6-By-Irk"/>
                                             <outlet property="profilePost" destination="COq-r6-0Cz" id="PnC-tC-Sk6"/>
                                             <outlet property="profileUsername" destination="2QB-et-Twt" id="7Bd-0c-aWu"/>
                                         </connections>

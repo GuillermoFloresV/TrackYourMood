@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *postLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *profilePictureView;
+@property (weak, nonatomic) IBOutlet UILabel *emojiLabel;
 
 @end
 

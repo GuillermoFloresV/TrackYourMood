@@ -69,7 +69,13 @@
                 NSNumber *convertedBool = document.data[@"isPublic"];
                 if([convertedBool doubleValue] == [one doubleValue] ){
                     //this means that the document is public, therefore it does get shown
-                    [self.postArray addObject:document.data];
+                    //if the object is not already inside of the array, then add it
+                    if([self.postArray containsObject:document.data]){
+                        NSLog(@"skipping a repeated object");
+                    }
+                    else{
+                        [self.postArray addObject:document.data];
+                    }
                 }
             }
           }
@@ -95,6 +101,8 @@
     
     cell.postLabel.text = postData[@"message"];
     cell.usernameLabel.text = postData[@"username"];
+    NSNumber *rating = postData[@"rating"];
+    cell.emojiLabel.text = [self showEmojiRating: rating];
     NSLog(@"Document Data: %@", postData.description);
 
     return cell;
@@ -105,7 +113,29 @@
     return self.postArray.count;
 }
 
--(void)showEmojiRating{
-    
+-(NSString*)showEmojiRating:(NSNumber *)number{
+    NSNumber *five = @5;
+    NSNumber *four = @4;
+    NSNumber *three = @3;
+    NSNumber *two = @2;
+    NSLog(@"Number being passed to the function: %@", number);
+    if([number doubleValue] == [five doubleValue]){
+        NSLog(@"five is equal to the num");
+        return @"😃";
+    }
+    if([number doubleValue] == [four doubleValue]){
+        NSLog(@"four is equal to the num");
+        return @"🙂";
+    }
+    if([number doubleValue] == [three doubleValue]){
+        NSLog(@"three is equal to the num");
+        return @"😐";
+    }
+    if([number doubleValue] ==[two doubleValue]){
+        NSLog(@"two is equal to the num");
+        return @"😕";
+    }
+    NSLog(@"one is equal to the num");
+    return @"😞";
 }
 @end
