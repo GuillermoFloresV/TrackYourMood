@@ -10,6 +10,7 @@
 #import "SceneDelegate.h"
 #import "homeViewController.h"
 #import "CoreData/CoreData.h"
+#import "AppDelegate.h"
 @import FirebaseFirestore;
 @import Firebase;
 @import FirebaseAuth;
@@ -24,9 +25,18 @@
 @end
 
 @implementation composeViewController
-
+//
+- (NSManagedObjectContext *)managedObjectContext {
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    [[[UIApplication sharedApplication] delegate] managedObjectContext];
     // Do any additional setup after loading the view.
     self.moodDescription.textColor = [UIColor lightGrayColor];
     self.moodDescription.text = @"Talk about your day here...";
@@ -73,21 +83,46 @@
         BOOL defaultPrivacy = YES;
         self.isPublicBool = [NSNumber numberWithBool:defaultPrivacy];
     }
+    NSNumber *one = @1;
+    //ispublic = true
+    if(self.isPublicBool== one){
         //push the post to the DB (uses addDocumentWithData in order to post without having to use a specified document path
-    [[db collectionWithPath:@"posts"] addDocumentWithData:@{
-        @"message": self.moodDescription.text,
-        @"rating": [NSNumber numberWithInt:intRating],
-        @"username": email,
-        @"isPublic": self.isPublicBool,
-    } completion:^(NSError * _Nullable error) {
-        if (error != nil) {
-            NSLog(@"Error writing document: %@", error);
-        } else {
-            NSLog(@"Document successfully written!");
+        [[db collectionWithPath:@"posts"] addDocumentWithData:@{
+            @"message": self.moodDescription.text,
+            @"rating": [NSNumber numberWithInt:intRating],
+            @"username": email,
+            @"isPublic": self.isPublicBool,
+        } completion:^(NSError * _Nullable error) {
+            if (error != nil) {
+                NSLog(@"Error writing document: %@", error);
+            } else {
+                NSLog(@"Document successfully written!");
+            }
+        }];
+        //sends us back to the feed page
+        [self dismissViewControllerAnimated:true completion:nil];
+    }
+    //post is private
+    else{
+        //let the user know (via a text appearing) that the PRIVATE post is not saved onto Firebase and is instead saved locally
+        
+        
+        NSManagedObjectContext *context = [self managedObjectContext];
+        
+        // Create a new post object
+        NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"Post" inManagedObjectContext:context];
+        [newDevice setValue:self.moodDescription.text forKey:@"message"];
+        [newDevice setValue:email forKey:@"user"];
+        
+        NSError *error = nil;
+        // Save the object to persistent store
+        if (![context save:&error]) {
+            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
         }
-    }];
-    //sends us back to the feed page
-    [self dismissViewControllerAnimated:true completion:nil];
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+
 }
 - (IBAction)tapHappy:(id)sender {
     self.emojiRating = @5;

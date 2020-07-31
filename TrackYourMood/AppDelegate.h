@@ -15,6 +15,6 @@
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 - (NSURL *)applicationDocumentsDirectory; // nice to have to reference files for core data
-
+- (NSManagedObjectContext *)managedObjectContext;
 @end
 

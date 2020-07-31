@@ -20,6 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [FIRApp configure];
+
     FIRFirestore *defaultFirestore = [FIRFirestore firestore];
     FIRFirestore *db = [FIRFirestore firestore];
     
@@ -63,7 +64,7 @@
 
     NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
     if (coordinator != nil) {
-        _managedObjectContext = [[NSManagedObjectContext alloc] init];
+        _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType: NSPrivateQueueConcurrencyType];
         [_managedObjectContext setPersistentStoreCoordinator:coordinator];
     }
     return _managedObjectContext;
@@ -84,7 +85,7 @@
         return _persistentStoreCoordinator;
     }
 
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"PostMode.sqlite"];
+   NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"PostModel.sqlite"];
 
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
@@ -96,6 +97,9 @@
 
     return _persistentStoreCoordinator;
 }
-
+- (NSURL *)applicationDocumentsDirectory
+{
+  return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
 
 @end
