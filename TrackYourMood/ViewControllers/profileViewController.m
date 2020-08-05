@@ -43,7 +43,8 @@
     self.postTableView.delegate = self;
     self.postTableView.dataSource = self;
     self.postTableView.rowHeight = 125;
-    
+
+
     FIRUser *user = [FIRAuth auth].currentUser;
     self.currEmail = user.email;
     self.profileUserLabel.text = self.currEmail;

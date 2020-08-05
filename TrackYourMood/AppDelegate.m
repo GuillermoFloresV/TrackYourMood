@@ -23,6 +23,8 @@
 
     FIRFirestore *defaultFirestore = [FIRFirestore firestore];
     FIRFirestore *db = [FIRFirestore firestore];
+    //gets reference to the storage
+    FIRStorage *storage = [FIRStorage storage];
     
     return YES;
     
