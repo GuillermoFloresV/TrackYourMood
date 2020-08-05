@@ -56,7 +56,8 @@
         }];
 }
 - (void)beginRefresh:(UIRefreshControl *)refreshFeed {
-    
+    //this removes all objects inside of the post array in order to ensure that we are grabbing all of the posts on Firebase
+    self.postArray.removeAllObjects;
     FIRFirestore *db = [FIRFirestore firestore];
     [[db collectionWithPath:@"posts"]
      getDocumentsWithCompletion:^(FIRQuerySnapshot *snapshot, NSError *error) {
@@ -69,13 +70,7 @@
                 NSNumber *convertedBool = document.data[@"isPublic"];
                 if([convertedBool doubleValue] == [one doubleValue] ){
                     //this means that the document is public, therefore it does get shown
-                    //if the object is not already inside of the array, then add it
-                    if([self.postArray containsObject:document.data]){
-                        NSLog(@"skipping a repeated object");
-                    }
-                    else{
-                        [self.postArray addObject:document.data];
-                    }
+                    [self.postArray addObject:document.data];
                 }
             }
           }

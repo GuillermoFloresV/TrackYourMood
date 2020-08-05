@@ -85,7 +85,9 @@
     }
     NSNumber *one = @1;
     //ispublic = true
-    if(self.isPublicBool== one){
+    NSLog(@"isPublicBool: %@", self.isPublicBool);
+    if([self.isPublicBool doubleValue] == [one doubleValue]){
+        NSLog(@"posting to firebase");
         //push the post to the DB (uses addDocumentWithData in order to post without having to use a specified document path
         [[db collectionWithPath:@"posts"] addDocumentWithData:@{
             @"message": self.moodDescription.text,
@@ -105,14 +107,18 @@
     //post is private
     else{
         //let the user know (via a text appearing) that the PRIVATE post is not saved onto Firebase and is instead saved locally
-        
+                NSLog(@"posting to local db");
         
         NSManagedObjectContext *context = [self managedObjectContext];
         
         // Create a new post object
-        NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"Post" inManagedObjectContext:context];
-        [newDevice setValue:self.moodDescription.text forKey:@"message"];
-        [newDevice setValue:email forKey:@"user"];
+        NSManagedObject *newPost = [NSEntityDescription insertNewObjectForEntityForName:@"Post" inManagedObjectContext:context];
+        [newPost setValue:self.moodDescription.text forKey:@"message"];
+        [newPost setValue:email forKey:@"user"];
+        int intRating = [self.emojiRating intValue];
+        
+//        [newPost setValue:[NSNumber numberWithInteger:intRating] forKey:@"rating"];
+        
         
         NSError *error = nil;
         // Save the object to persistent store

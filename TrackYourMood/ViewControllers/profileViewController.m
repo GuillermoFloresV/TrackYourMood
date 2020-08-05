@@ -16,7 +16,7 @@
 @import FirebaseFirestore;
 @interface profileViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *postTableView;
-@property (strong, nonatomic) NSMutableArray *optionsArray;
+@property (strong, nonatomic) NSMutableArray *combinedArray;
 @property (strong, nonatomic) NSMutableArray *postsArray;
 @property (weak, nonatomic) IBOutlet UILabel *profileUserLabel;
 @property (strong, nonatomic) NSMutableArray *privatePosts;
@@ -39,6 +39,7 @@
     // Do any additional setup after loading the view.
     self.postsArray = [[NSMutableArray alloc] init];
     self.privatePosts = [[NSMutableArray alloc] init];
+    self.combinedArray = [[NSMutableArray alloc] init];
     self.postTableView.delegate = self;
     self.postTableView.dataSource = self;
     self.postTableView.rowHeight = 125;
@@ -64,15 +65,23 @@
                 }
             }
           }
-                    [self.postTableView reloadData];
+            [self.postTableView reloadData];
         }];
     //grabs users private posts
     // Fetch the devices from persistent data store
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Post"];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Post" ];
+//    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"user == %@",_currEmail]];
+
+    NSLog(@"Entity name: %@", fetchRequest.entityName);
     self.privatePosts = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
     
-    [self.postTableView reloadData];
+    
+    _combinedArray = [NSMutableArray arrayWithArray:_privatePosts];
+    [_combinedArray addObjectsFromArray:_postsArray];
+    
+//    [self.postTableView reloadData];
+    
     
 }
 - (IBAction)logoutAction:(id)sender {
@@ -115,25 +124,36 @@
     
     ProfilePost *cell = [postTableView dequeueReusableCellWithIdentifier:(@"ProfilePostCell")];
 //    NSDictionary *postData = self.postsArray[indexPath.row];
-    
+//
 //    cell.profilePost.text = postData[@"message"];
 //    cell.profileUsername.text = postData[@"username"];
 //    NSLog(@"Document Data: %@", postData.description);
-//
+
     NSManagedObject *privatePost = [self.privatePosts objectAtIndex:indexPath.row];
-    if([[privatePost valueForKey:@"user" ] isEqualToString:self.currEmail])
-    {
+
+
+    if([[privatePost valueForKey:@"user" ] isEqualToString:self.currEmail]){
         [cell.profileUsername setText:[privatePost valueForKey:@"user"]];
         [cell.profilePost setText:[privatePost valueForKey:@"message"]];
     }
+    else{
+        NSLog(@"private post skipped");
+    }
     return cell;
 
+}
+- (IBAction)changeProfilePic:(id)sender {
+    NSLog(@"profile pic button tapped");
 }
 
 
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.privatePosts.count + self.postsArray.count;
+    NSLog(@"Length of the private array: %lu", self.privatePosts.count);
+    NSLog(@"Length of the public array: %lu", (unsigned long)self.postsArray.count);
+    //return self.privatePosts.count + self.postsArray.count;
+        NSLog(@"Length of combined array: %lu", self.combinedArray.count);
+    return self.combinedArray.count;
 }
 
 @end
