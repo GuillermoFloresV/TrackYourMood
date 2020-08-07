@@ -342,7 +342,7 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" backgroundImage="person.fill" catalog="system"/>
                                 <connections>
-                                    <action selector="changeProfilePic:" destination="tIj-nV-84h" eventType="touchUpInside" id="fJY-hK-1Ll"/>
+                                    <action selector="changePFP:" destination="tIj-nV-84h" eventType="touchUpInside" id="Ezo-8d-niF"/>
                                 </connections>
                             </button>
                         </subviews>

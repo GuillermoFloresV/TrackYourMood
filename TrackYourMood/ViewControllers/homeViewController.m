@@ -44,12 +44,8 @@
           } else {
             for (FIRDocumentSnapshot *document in snapshot.documents) {
                 //adds the post data into an array
-                NSNumber *one = @1;
-                NSNumber *convertedBool = document.data[@"isPublic"];
-                if([convertedBool doubleValue] == [one doubleValue] ){
-                    //this means that the document is public, therefore it does get shown
-                    [self.postArray addObject:document.data];
-                }
+                [self.postArray addObject:document.data];
+                
             }
           }
                     [self.postsTableView reloadData];
@@ -66,12 +62,9 @@
           } else {
             for (FIRDocumentSnapshot *document in snapshot.documents) {
                 //adds the post data into an array
-                NSNumber *one = @1;
-                NSNumber *convertedBool = document.data[@"isPublic"];
-                if([convertedBool doubleValue] == [one doubleValue] ){
                     //this means that the document is public, therefore it does get shown
                     [self.postArray addObject:document.data];
-                }
+                
             }
           }
         [self.postsTableView reloadData];
@@ -95,7 +88,7 @@
     NSDictionary *postData = self.postArray[indexPath.row];
     
     cell.postLabel.text = postData[@"message"];
-    cell.usernameLabel.text = postData[@"username"];
+    cell.usernameLabel.text = postData[@"user"];
     NSNumber *rating = postData[@"rating"];
     cell.emojiLabel.text = [self showEmojiRating: rating];
     NSLog(@"Document Data: %@", postData.description);

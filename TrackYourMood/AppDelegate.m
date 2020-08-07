@@ -10,7 +10,7 @@
 #import "CoreData/CoreData.h"
 @import Firebase;
 @interface AppDelegate ()
-
+@property (strong, nonatomic) FIRStorage *storage;
 @end
 
 @implementation AppDelegate
@@ -23,9 +23,7 @@
 
     FIRFirestore *defaultFirestore = [FIRFirestore firestore];
     FIRFirestore *db = [FIRFirestore firestore];
-    //gets reference to the storage
-    FIRStorage *storage = [FIRStorage storage];
-    
+    self.storage = [FIRStorage storageWithURL:@"gs://trackyourmood-f0528.appspot.com"];
     return YES;
     
     

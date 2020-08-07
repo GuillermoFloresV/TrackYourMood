@@ -40,21 +40,22 @@
     // Do any additional setup after loading the view.
     self.moodDescription.textColor = [UIColor lightGrayColor];
     self.moodDescription.text = @"Talk about your day here...";
-    self.moodDescription.delegate = self;
+//    self.moodDescription.delegate = self;
     
     //disables the button so that users cant post the preset text
-    _postButton.enabled = NO;
+        _postButton.enabled = NO;
 }
 - (BOOL) textViewShouldBeginEditing:(UITextView *)moodDescription{
+    NSLog(@"attempting to edit text");
     //super hacky way to have the placeholder text disappear (want to fix later)
     if([self.moodDescription.text  isEqual: @"Talk about your day here..."]){
         self.moodDescription.text = @"";
         self.moodDescription.textColor = [UIColor blackColor];
-        NSNumber *emojiRating;
     }
     return YES;
 }
 - (IBAction)onTapScreen:(id)sender {
+    NSLog(@"123");
     [self.view endEditing:YES];
 }
 - (IBAction)isPublicControl:(id)sender {
@@ -92,7 +93,7 @@
         [[db collectionWithPath:@"posts"] addDocumentWithData:@{
             @"message": self.moodDescription.text,
             @"rating": [NSNumber numberWithInt:intRating],
-            @"username": email,
+            @"user": email,
             @"isPublic": self.isPublicBool,
         } completion:^(NSError * _Nullable error) {
             if (error != nil) {
@@ -115,7 +116,8 @@
         NSManagedObject *newPost = [NSEntityDescription insertNewObjectForEntityForName:@"Post" inManagedObjectContext:context];
         [newPost setValue:self.moodDescription.text forKey:@"message"];
         [newPost setValue:email forKey:@"user"];
-        int intRating = [self.emojiRating intValue];
+        
+        NSLog(@"Private post dictionary: %@", newPost);
         
 //        [newPost setValue:[NSNumber numberWithInteger:intRating] forKey:@"rating"];
         

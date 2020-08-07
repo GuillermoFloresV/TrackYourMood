@@ -14,12 +14,14 @@
 #import "AppDelegate.h"
 @import Firebase;
 @import FirebaseFirestore;
+@import FirebaseStorage;
 @interface profileViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *postTableView;
 @property (strong, nonatomic) NSMutableArray *combinedArray;
 @property (strong, nonatomic) NSMutableArray *postsArray;
 @property (weak, nonatomic) IBOutlet UILabel *profileUserLabel;
 @property (strong, nonatomic) NSMutableArray *privatePosts;
+@property (strong, nonatomic) NSMutableArray *convertedPosts;
 @property (strong, nonatomic) NSString *currEmail;
 @end
 @implementation profileViewController
@@ -40,6 +42,7 @@
     self.postsArray = [[NSMutableArray alloc] init];
     self.privatePosts = [[NSMutableArray alloc] init];
     self.combinedArray = [[NSMutableArray alloc] init];
+    self.convertedPosts = [[NSMutableArray alloc] init];
     self.postTableView.delegate = self;
     self.postTableView.dataSource = self;
     self.postTableView.rowHeight = 125;
@@ -58,7 +61,7 @@
           } else {
             for (FIRDocumentSnapshot *document in snapshot.documents) {
                 //adds the post data into an array
-                NSString *currUser = document.data[@"username"];
+                NSString *currUser = document.data[@"user"];
                 if([currUser isEqualToString:self.currEmail] ){
                     //if the user matches the curr user then it gets added to the array for showing
                     [self.postsArray addObject:document.data];
@@ -72,14 +75,12 @@
     // Fetch the devices from persistent data store
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Post" ];
-//    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"user == %@",_currEmail]];
+    [fetchRequest setReturnsObjectsAsFaults:NO];
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"user == %@",_currEmail]];
 
     NSLog(@"Entity name: %@", fetchRequest.entityName);
     self.privatePosts = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
     
-    
-    _combinedArray = [NSMutableArray arrayWithArray:_privatePosts];
-    [_combinedArray addObjectsFromArray:_postsArray];
     
 //    [self.postTableView reloadData];
     
@@ -124,37 +125,132 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)postTableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
     ProfilePost *cell = [postTableView dequeueReusableCellWithIdentifier:(@"ProfilePostCell")];
-//    NSDictionary *postData = self.postsArray[indexPath.row];
-//
-//    cell.profilePost.text = postData[@"message"];
-//    cell.profileUsername.text = postData[@"username"];
-//    NSLog(@"Document Data: %@", postData.description);
+    //this ensures that the private posts are the only ones that are converted
 
-    NSManagedObject *privatePost = [self.privatePosts objectAtIndex:indexPath.row];
+    NSDictionary *postData = self.combinedArray[indexPath.row];
+    
+    cell.profilePost.text = postData[@"message"];
+    cell.profileUsername.text = postData[@"user"];
+    NSLog(@"Document Data: %@", postData.description);
 
-
-    if([[privatePost valueForKey:@"user" ] isEqualToString:self.currEmail]){
-        [cell.profileUsername setText:[privatePost valueForKey:@"user"]];
-        [cell.profilePost setText:[privatePost valueForKey:@"message"]];
-    }
-    else{
-        NSLog(@"private post skipped");
-    }
     return cell;
 
 }
-- (IBAction)changeProfilePic:(id)sender {
-    NSLog(@"profile pic button tapped");
+- (IBAction)changePFP:(id)sender {
+    UIImagePickerController *imagePickerVC = [UIImagePickerController new];
+    imagePickerVC.delegate = self;
+    imagePickerVC.allowsEditing = YES;
+    imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+
+    [self presentViewController:imagePickerVC animated:YES completion:nil];
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+        imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    else {
+        NSLog(@"Camera 🚫 available so we will use photo library instead");
+        imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        
+    }
+    
+}
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    //You can retrieve the actual UIImage
+    UIImage *image = [info valueForKey:UIImagePickerControllerEditedImage];
+    //Or you can get the image url from AssetsLibrary
+    NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
+
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    NSLog(@"finish choosing image.");
+    NSLog(@"image data: %@", imageData);
+    // Create the file metadata
+    FIRStorageMetadata *metadata = [[FIRStorageMetadata alloc] init];
+    metadata.contentType = @"image/jpeg";
+
+    // Get a reference to the storage service using the default Firebase App
+    FIRStorage *storage = [FIRStorage storage];
+
+    // Create a storage reference from our storage service
+    FIRStorageReference *storageRef = [storage reference];
+
+    NSString *fullFirebasePath = [@"profilepictures/" stringByAppendingString: self.currEmail];
+    FIRStorageReference *pfp = [storageRef child:fullFirebasePath];
+    // Upload file and metadata to the object 'images/mountains.jpg'
+    FIRStorageUploadTask *uploadTask = [pfp putData:imageData metadata:metadata];
+
+
+    // Listen for state changes, errors, and comp letion of the upload.
+    [uploadTask observeStatus:FIRStorageTaskStatusResume handler:^(FIRStorageTaskSnapshot *snapshot) {
+        NSLog(@"file upload resumed / started");
+        // Upload resumed, also fires when the upload starts
+    }];
+
+    [uploadTask observeStatus:FIRStorageTaskStatusPause handler:^(FIRStorageTaskSnapshot *snapshot) {
+        // Upload paused
+        NSLog(@"file upload paused");
+    }];
+
+    [uploadTask observeStatus:FIRStorageTaskStatusProgress handler:^(FIRStorageTaskSnapshot *snapshot) {
+        // Upload reported progress
+        double percentComplete = 100.0 * (snapshot.progress.completedUnitCount) / (snapshot.progress.totalUnitCount);
+    }];
+
+    [uploadTask observeStatus:FIRStorageTaskStatusSuccess handler:^(FIRStorageTaskSnapshot *snapshot) {
+        // Upload completed successfully
+        NSLog(@"upload completed successfully");
+    }];
+
+    // Errors only occur in the "Failure" case
+    [uploadTask observeStatus:FIRStorageTaskStatusFailure handler:^(FIRStorageTaskSnapshot *snapshot) {
+        if (snapshot.error != nil) {
+            switch (snapshot.error.code) {
+                case FIRStorageErrorCodeObjectNotFound:
+                    // File doesn't exist
+                    NSLog(@"file does not exist");
+                    break;
+
+                case FIRStorageErrorCodeUnauthorized:
+                    // User doesn't have permission to access file
+                    NSLog(@"permission denied");
+                    break;
+
+                case FIRStorageErrorCodeCancelled:
+                    NSLog(@"file upload cancelled");
+                    // User canceled the upload
+                    break;
+
+                case FIRStorageErrorCodeUnknown:
+                    NSLog(@"error: %@", snapshot.error);
+                    // Unknown error occurred, inspect the server response
+                    break;
+            }
+        }
+    }];
 }
 
 
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"Length of the private array: %lu", self.privatePosts.count);
+    NSLog(@"Length of the private array: %lu", self.convertedPosts.count);
     NSLog(@"Length of the public array: %lu", (unsigned long)self.postsArray.count);
-    //return self.privatePosts.count + self.postsArray.count;
-        NSLog(@"Length of combined array: %lu", self.combinedArray.count);
+    
+    self.combinedArray = [NSMutableArray arrayWithArray:self.convertedPosts];
+    [self.combinedArray addObjectsFromArray:self.postsArray];
+    
+    NSLog(@"Length of ACTUAL COMBINED array: %lu", self.combinedArray.count);
+    int i=0;
+    for(NSObject *object in self.privatePosts)
+    {
+        //this takes the NSManagedObject and converts it into a dict in order to comply with our NSDictionary
+        NSManagedObject *privatePost = [self.privatePosts objectAtIndex:i];
+        NSArray *myKeys = [[[privatePost entity] attributesByName]allKeys];
+        NSDictionary *myDict = [privatePost dictionaryWithValuesForKeys:myKeys];
+        NSLog(@"Current dict being made: %@", myDict);
+        [self.combinedArray addObject:myDict];
+        i+=1;
+    }
     return self.combinedArray.count;
+
 }
 
 @end
