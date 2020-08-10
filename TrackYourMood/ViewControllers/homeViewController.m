@@ -92,7 +92,29 @@
     NSNumber *rating = postData[@"rating"];
     cell.emojiLabel.text = [self showEmojiRating: rating];
     NSLog(@"Document Data: %@", postData.description);
+    // Get a reference to the storage service using the default Firebase App
+    FIRStorage *storage = [FIRStorage storage];
 
+    // Create a storage reference from our storage service
+    FIRStorageReference *storageRef = [storage reference];
+
+    NSString *path = [@"profilepictures/" stringByAppendingString :postData[@"user"]];
+    NSLog(@"Path: %@", path);
+    FIRStorageReference *currPFP = [storageRef child: path];
+
+    // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+    [currPFP dataWithMaxSize:1 * 1024 * 1024 completion:^(NSData *data, NSError *error){
+      if (error != nil) {
+        // Uh-oh, an error occurred!
+          NSLog(@"error occured: %ld", (long)error.code);
+          //here (if there is no pfp, then the user will not have a personalized image)
+      } else {
+          NSLog(@"changing pfp");
+        // Data for "images/curruser.jpg" is returned
+        UIImage *pfp = [UIImage imageWithData:data];
+          [cell.profilePictureView setImage:pfp ];
+      }
+    }];
     return cell;
     }
 

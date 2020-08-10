@@ -16,6 +16,7 @@
 @import FirebaseFirestore;
 @import FirebaseStorage;
 @interface profileViewController () <UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *profileImage;
 @property (weak, nonatomic) IBOutlet UITableView *postTableView;
 @property (strong, nonatomic) NSMutableArray *combinedArray;
 @property (strong, nonatomic) NSMutableArray *postsArray;
@@ -46,12 +47,39 @@
     self.postTableView.delegate = self;
     self.postTableView.dataSource = self;
     self.postTableView.rowHeight = 125;
+    
 
 
     FIRUser *user = [FIRAuth auth].currentUser;
     self.currEmail = user.email;
     self.profileUserLabel.text = self.currEmail;
-    
+    // Get a reference to the storage service using the default Firebase App
+    FIRStorage *storage = [FIRStorage storage];
+
+    // Create a storage reference from our storage service
+    FIRStorageReference *storageRef = [storage reference];
+    NSLog(@"curruser: %@", self.currEmail);
+    NSString *path = [@"profilepictures/" stringByAppendingString :self.currEmail];
+    FIRStorageReference *currPFP = [storageRef child: path];
+    if(currPFP ==nil)
+    {
+        NSLog(@"user does not have a custom pfp");
+    }
+    else{
+
+        // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+        [currPFP dataWithMaxSize:1 * 1024 * 1024 completion:^(NSData *data, NSError *error){
+          if (error != nil) {
+            // Uh-oh, an error occurred!
+              NSLog(@"error occured: %ld", (long)error.code);
+          } else {
+              NSLog(@"changing pfp");
+            // Data for "images/curruser.jpg" is returned
+            UIImage *pfp = [UIImage imageWithData:data];
+            [self.profileImage setImage:pfp forState:UIControlStateNormal];
+          }
+        }];
+    }
     //grabs the specific user's public posts
     FIRFirestore *db = [FIRFirestore firestore];
     [[db collectionWithPath:@"posts"]
@@ -132,6 +160,29 @@
     cell.profilePost.text = postData[@"message"];
     cell.profileUsername.text = postData[@"user"];
     NSLog(@"Document Data: %@", postData.description);
+    
+    // Get a reference to the storage service using the default Firebase App
+    FIRStorage *storage = [FIRStorage storage];
+
+    // Create a storage reference from our storage service
+    FIRStorageReference *storageRef = [storage reference];
+
+    NSString *path = [@"profilepictures/" stringByAppendingString :self.currEmail];
+    FIRStorageReference *currPFP = [storageRef child: path];
+
+    // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+    [currPFP dataWithMaxSize:1 * 1024 * 1024 completion:^(NSData *data, NSError *error){
+      if (error != nil) {
+        // Uh-oh, an error occurred!
+          NSLog(@"error occured: %ld", (long)error.code);
+          //here (if there is no pfp, then the user will not have a personalized image)
+      } else {
+          NSLog(@"changing pfp");
+        // Data for "images/curruser.jpg" is returned
+        UIImage *pfp = [UIImage imageWithData:data];
+          [cell.profilePicture setImage:pfp ];
+      }
+    }];
 
     return cell;
 
@@ -198,6 +249,23 @@
     [uploadTask observeStatus:FIRStorageTaskStatusSuccess handler:^(FIRStorageTaskSnapshot *snapshot) {
         // Upload completed successfully
         NSLog(@"upload completed successfully");
+        //sets the current image to the one just uploaded
+        // Create a reference to the file you want to download
+        NSString *path = [@"profilepictures/" stringByAppendingString :self.currEmail];
+        FIRStorageReference *currPFP = [storageRef child: path];
+
+        // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+        [currPFP dataWithMaxSize:1 * 1024 * 1024 completion:^(NSData *data, NSError *error){
+          if (error != nil) {
+            // Uh-oh, an error occurred!
+              NSLog(@"error occured: %ld", (long)error.code);
+          } else {
+              NSLog(@"changing pfp");
+            // Data for "images/curruser.jpg" is returned
+            UIImage *pfp = [UIImage imageWithData:data];
+              [self.profileImage setImage:pfp forState:UIControlStateNormal];
+          }
+        }];
     }];
 
     // Errors only occur in the "Failure" case

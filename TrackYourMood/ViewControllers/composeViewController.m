@@ -40,8 +40,8 @@
     // Do any additional setup after loading the view.
     self.moodDescription.textColor = [UIColor lightGrayColor];
     self.moodDescription.text = @"Talk about your day here...";
-//    self.moodDescription.delegate = self;
-    
+    self.moodDescription.delegate = self;
+    self.moodDescription.tintColor = UIColor.darkGrayColor;
     //disables the button so that users cant post the preset text
         _postButton.enabled = NO;
 }
