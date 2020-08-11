@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *isPublicControl;
 @property (strong, nonatomic) NSNumber *emojiRating;
 @property (strong, nonatomic) NSNumber *isPublicBool;
+@property (weak, nonatomic) IBOutlet UILabel *warningLabel;
 @property (weak, nonatomic) IBOutlet UIButton *postButton;
 @end
 
@@ -44,6 +45,7 @@
     self.moodDescription.tintColor = UIColor.darkGrayColor;
     //disables the button so that users cant post the preset text
         _postButton.enabled = NO;
+    [self.warningLabel setHidden:YES];
 }
 - (BOOL) textViewShouldBeginEditing:(UITextView *)moodDescription{
     NSLog(@"attempting to edit text");
@@ -164,6 +166,7 @@
     {
         //re-enables the button to be able to post things
         _postButton.enabled = YES;
+        [self.warningLabel setHidden:NO];
     }
 }
 

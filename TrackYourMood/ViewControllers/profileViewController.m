@@ -12,6 +12,7 @@
 #import "ProfilePost.h"
 #import <CoreData/CoreData.h>
 #import "AppDelegate.h"
+#import <QuartzCore/QuartzCore.h>
 @import Firebase;
 @import FirebaseFirestore;
 @import FirebaseStorage;
@@ -122,16 +123,16 @@
       sceneDelegate.window.rootViewController = loginViewController;
 }
 
-//creating a popover menu for iPhone:
-//https://stackoverflow.com/questions/25319179/uipopoverpresentationcontroller-on-ios-8-iphone/25656733#25656733
--(void) prepareForSegue:(UIStoryboardSegue *) segue sender:(id) sender
-{
-    if ([segue.identifier isEqualToString:@"PopoverSegue"]) {
-        UIViewController *controller = segue.destinationViewController;
-        controller.popoverPresentationController.delegate = self;
-        controller.preferredContentSize = CGSizeMake(320, 186);
-    }
-}
+////creating a popover menu for iPhone:
+////https://stackoverflow.com/questions/25319179/uipopoverpresentationcontroller-on-ios-8-iphone/25656733#25656733
+//-(void) prepareForSegue:(UIStoryboardSegue *) segue sender:(id) sender
+//{
+//    if ([segue.identifier isEqualToString:@"PopoverSegue"]) {
+//        UIViewController *controller = segue.destinationViewController;
+//        controller.popoverPresentationController.delegate = self;
+//        controller.preferredContentSize = CGSizeMake(320, 186);
+//    }
+//}
 
 // MARK: UIPopoverPresentationControllerDelegate
 
